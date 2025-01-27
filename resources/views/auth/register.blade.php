@@ -1,4 +1,5 @@
 <x-guest-layout>
+    <h2 class="text-2xl font-bold text-white mb-6">Register to Wisata Semarang</h2>
     <form method="POST" action="{{ route('register') }}">
         @csrf
 

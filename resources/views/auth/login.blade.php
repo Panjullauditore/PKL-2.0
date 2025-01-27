@@ -1,4 +1,5 @@
 <x-guest-layout>
+    <h2 class="text-2xl font-bold text-white mb-6">Login to Wisata Semarang</h2>
     <!-- Session Status -->
     <x-auth-session-status class="mb-4" :status="session('status')" />
 
