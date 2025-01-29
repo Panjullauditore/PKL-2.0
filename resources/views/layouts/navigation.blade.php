@@ -6,14 +6,14 @@
             <div class="flex">
                 <!-- Logo -->
                 <div class="shrink-0 flex items-center">
-                    <a href="{{ route('home') }}">
+                    <a href="{{ route('dashboard') }}">
                         <x-application-logo class="block h-9 w-auto fill-current text-white" />
                     </a>
                 </div>
 
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-nav-link :href="route('home')" :active="request()->routeIs('Home')" class="text-white">
+                    <x-nav-link :href="route('dashboard')" :active="request()->routeIs('Dashboard')" class="text-white">
                         {{ __('Home') }}
                     </x-nav-link>
                     <x-nav-link :href="route('wisata')" :active="request()->routeIs('wisata')" class="text-white">

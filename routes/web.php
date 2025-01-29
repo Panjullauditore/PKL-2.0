@@ -15,9 +15,9 @@ use Illuminate\Support\Facades\Route;
 //     return view('dashboard');
 // })->middleware(['auth', 'verified'])->name('dashboard');
 
-Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])
+Route::get('/', [App\Http\Controllers\DashboardController::class, 'index'])
     ->middleware(['auth'])
-    ->name('home');
+    ->name('dashboard');
 
 Route::middleware(['auth'])->group(function () {
     Route::get('/wisata', [WisataController::class, 'index'])->name('wisata');
