@@ -6,7 +6,9 @@ use App\Http\Controllers\WisataController;
 use App\Http\Controllers\KulinerController;
 use App\Http\Controllers\HotelController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\DetailController;
 
+Route::get('/hotel/{id}', [DetailController::class, 'show'])->name('hotel.detail');
 // Route::get('/', function () {
 //     return view('dashboard');
 // });
