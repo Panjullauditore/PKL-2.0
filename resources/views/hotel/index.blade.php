@@ -1,3 +1,4 @@
+<!-- resources/views/hotel/index.blade.php -->
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-white leading-tight">
@@ -18,14 +19,6 @@
                             <p class="mb-2"><i class="fas fa-map-marker-alt mr-2"></i>{{ $hotel['address'] }}</p>
                             <p class="mb-2"><i class="fas fa-star mr-2"></i>{{ $hotel['rating'] }}/5.0</p>
                             <p class="mb-2"><i class="fas fa-money-bill-wave mr-2"></i>{{ $hotel['price_range'] }}</p>
-                            <div class="mt-4">
-                                <p class="font-bold text-white mb-2">Facilities:</p>
-                                <ul class="list-disc list-inside">
-                                    @foreach($hotel['facilities'] as $facility)
-                                    <li>{{ $facility }}</li>
-                                    @endforeach
-                                </ul>
-                            </div>
                         </div>
                         <a href="#" class="inline-block mt-4 px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition duration-300">
                             View Details

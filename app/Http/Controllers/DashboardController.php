@@ -44,17 +44,17 @@ class DashboardController extends Controller
         $popularPlaces = [
             [
                 'name' => 'Lawang Sewu',
-                'image' => 'images/lawang-sewu.jpg',
+                'image' => 'img/lawang-sewu.png',
                 'description' => 'Historic Dutch colonial era building'
             ],
             [
                 'name' => 'Sam Poo Kong',
-                'image' => 'images/sampookong.jpg',
+                'image' => 'img/sampokong.png',
                 'description' => 'Chinese temple with cultural significance'
             ],
             [
                 'name' => 'Kota Lama',
-                'image' => 'images/kota-lama.jpg',
+                'image' => 'img/kota-lama.png',
                 'description' => 'Old City district with Dutch architecture'
             ],
         ];
