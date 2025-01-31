@@ -9,7 +9,6 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DetailController;
 use App\Http\Controllers\ShoppingController;
 use App\Http\Controllers\EntertainmentController;
-use App\Http\Controllers\TouristAttractionController;
 use App\Http\Controllers\TourGuideController;
 
 Route::get('/hotel/{id}', [DetailController::class, 'show'])->name('hotel.detail');

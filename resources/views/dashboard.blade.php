@@ -183,7 +183,7 @@
                 <span>(024) 3513366 – 3515871 Fax:(024) 3542522</span>
             </div>
             <div class="text-center text-gray-400 text-sm mt-2">
-                &copy; 2024 Wisata Semarang. All rights reserved.
+                &copy; 2025 Wisata Semarang. All rights reserved.
             </div>
         </div>
     </footer>

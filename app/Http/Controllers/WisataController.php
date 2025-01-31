@@ -11,7 +11,7 @@ class WisataController extends Controller
         $wisataPlaces = [
             [
                 'name' => 'Lawang Sewu',
-                'image' => 'images/lawang-sewu.jpg',
+                'image' => 'img/lawang-sewu.png',
                 'description' => 'Historic Dutch colonial era building',
                 'address' => 'Jl. Pemuda, Sekayu, Semarang Tengah',
                 'rating' => 4.5,
@@ -19,7 +19,7 @@ class WisataController extends Controller
             ],
             [
                 'name' => 'Sam Poo Kong',
-                'image' => 'images/sampookong.jpg',
+                'image' => 'img/sampookong.png',
                 'description' => 'Chinese temple with cultural significance',
                 'address' => 'Jl. Simongan No.129, Bongsari, Semarang Barat',
                 'rating' => 4.6,
@@ -27,7 +27,7 @@ class WisataController extends Controller
             ],
             [
                 'name' => 'Kota Lama',
-                'image' => 'images/kota-lama.jpg',
+                'image' => 'img/kota-lama.png',
                 'description' => 'Old City district with Dutch architecture',
                 'address' => 'Jl. Letjen Suprapto, Tanjung Mas, Semarang Utara',
                 'rating' => 4.7,
