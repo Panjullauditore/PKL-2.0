@@ -8,3 +8,16 @@
     background-position: center;
     background-repeat: no-repeat;
 }
+
+.auth-background {
+    background-image: url('/images/background.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+@layer components {
+    .backdrop-blur-sm {
+        backdrop-filter: blur(8px);
+        -webkit-backdrop-filter: blur(8px);
+    }
+}
