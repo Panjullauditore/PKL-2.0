@@ -19,7 +19,7 @@ class WisataController extends Controller
             ],
             [
                 'name' => 'Sam Poo Kong',
-                'image' => 'img/sampookong.png',
+                'image' => 'img/sampokong.png',
                 'description' => 'Chinese temple with cultural significance',
                 'address' => 'Jl. Simongan No.129, Bongsari, Semarang Barat',
                 'rating' => 4.6,
