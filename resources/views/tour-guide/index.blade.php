@@ -21,8 +21,8 @@
                             <p class="mb-2"><i class="fas fa-money-bill-wave mr-2"></i>{{ $guide['price_range'] }}</p>
                             <p><i class="fas fa-phone mr-2"></i>{{ $guide['phone'] }}</p>
                         </div>
-                        <a href="#" class="inline-block mt-4 px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition duration-300">
-                            Contact Guide
+                        <a href="{{ route('tour-guide.show', $loop->index) }}" class="inline-block mt-4 px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition duration-300">
+                            View Details
                         </a>
                     </div>
                 </div>

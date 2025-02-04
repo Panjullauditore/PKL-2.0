@@ -5,9 +5,9 @@ use Illuminate\Http\Request;
 
 class HotelController extends Controller
 {
-    public function index()
+    private function getHotels()
     {
-        $hotels = [
+        return [
             [
                 'name' => 'Hotel Tentrem Semarang',
                 'image' => 'images/hotel-tentrem.jpg',
@@ -52,7 +52,18 @@ class HotelController extends Controller
                 ]
             ],
         ];
+    }
 
+    public function index()
+    {
+        $hotels = $this->getHotels();
         return view('hotel.index', compact('hotels'));
+    }
+
+    public function show($id)
+    {
+        $hotels = $this->getHotels();
+        $hotel = $hotels[$id] ?? abort(404);
+        return view('hotel.show', compact('hotel'));
     }
 }

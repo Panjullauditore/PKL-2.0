@@ -20,9 +20,12 @@
                             <p class="mb-2"><i class="fas fa-star mr-2"></i>{{ $hotel['rating'] }}/5.0</p>
                             <p class="mb-2"><i class="fas fa-money-bill-wave mr-2"></i>{{ $hotel['price_range'] }}</p>
                         </div>
-                        <a href="#" class="inline-block mt-4 px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition duration-300">
+                        <a href="{{ route('hotel.show', $loop->index) }}" class="inline-block mt-4 px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition duration-300">
                             View Details
                         </a>
+                        {{-- <a href="#" class="inline-block mt-4 px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition duration-300">
+                            View Details
+                        </a> --}}
                     </div>
                 </div>
                 @endforeach

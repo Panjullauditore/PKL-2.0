@@ -1,58 +1,63 @@
 <?php
+
 namespace App\Http\Controllers;
+
+use Illuminate\Http\Request;
 
 class ShoppingController extends Controller
 {
-    public function index()
-{
-   $shoppingPlaces = [
-       [
-           'name' => 'Pasar Johar',
-           'image' => 'images/shopping/johar.jpg', 
-           'description' => 'Pusat oleh-oleh khas Semarang',
-           'address' => 'Jl. Pasar Johar',
-           'rating' => 4.3,
-           'category' => 'Traditional Market',
-           'opening_hours' => '06:00 - 17:00'
-       ],
-       [
-           'name' => 'Pasar Bulu',
-           'image' => 'images/shopping/bulu.jpg',
-           'description' => 'Pasar tradisional dengan beragam kebutuhan sehari-hari',
-           'address' => 'Jl. Mgr Sugiyopranoto',
-           'rating' => 4.0,
-           'category' => 'Traditional Market',
-           'opening_hours' => '05:00 - 17:00'
-       ],
-       [
-           'name' => 'Central City Mall',
-           'image' => 'images/shopping/central.jpg',
-           'description' => 'Mall modern dengan berbagai brand ternama',
-           'address' => 'Jl. Brigjend Sudiarto No.30',
-           'rating' => 4.5,
-           'category' => 'Mall',
-           'opening_hours' => '10:00 - 22:00'
-       ],
-       [
-           'name' => 'Paragon City Mall',
-           'image' => 'images/shopping/paragon.jpg',
-           'description' => 'Mall premium dengan konsep lifestyle center',
-           'address' => 'Jl. Pemuda No.118',
-           'rating' => 4.6,
-           'category' => 'Mall',
-           'opening_hours' => '10:00 - 22:00'
-       ],
-       [
-           'name' => 'DP Mall',
-           'image' => 'images/shopping/dpmall.jpg',
-           'description' => 'Mall dengan beragam outlet fashion dan kuliner',
-           'address' => 'Jl. Pemuda No.150',
-           'rating' => 4.4,
-           'category' => 'Mall',
-           'opening_hours' => '10:00 - 21:00'
-       ]
-   ];
+    protected $shoppingPlaces = [
+        [
+            'name' => 'Paragon Mall Semarang',
+            'description' => 'A modern shopping destination in the heart of Semarang with a wide variety of stores and dining options.',
+            'image' => 'images/shopping/paragon-mall.jpg',
+            'address' => 'Jl. MT Haryono No.750-752, Semarang',
+            'rating' => 4.5,
+            'category' => 'Shopping Mall',
+            'opening_hours' => '10:00 - 22:00',
+            'brands' => [
+                'Zara', 
+                'H&M', 
+                'Uniqlo', 
+                'Nike', 
+                'Adidas'
+            ]
+        ],
+        [
+            'name' => 'Java Mall Semarang',
+            'description' => 'A popular shopping center offering a mix of retail, entertainment, and dining experiences.',
+            'image' => 'images/shopping/java-mall.jpg',
+            'address' => 'Jl. MT Haryono No.970, Semarang',
+            'rating' => 4.2,
+            'category' => 'Shopping Mall',
+            'opening_hours' => '10:00 - 21:00',
+            'brands' => [
+                'Matahari', 
+                'Sports Station', 
+                'GOTO', 
+                'Miniso'
+            ]
+        ]
+    ];
 
-   return view('shopping.index', compact('shoppingPlaces'));
-}
+    public function index()
+    {
+        return view('shopping.index', [
+            'shoppingPlaces' => $this->shoppingPlaces
+        ]);
+    }
+
+    public function show($id)
+    {
+        // Validate the ID
+        if ($id < 0 || $id >= count($this->shoppingPlaces)) {
+            abort(404, 'Shopping place not found');
+        }
+
+        $place = $this->shoppingPlaces[$id];
+
+        return view('shopping.show', [
+            'place' => $place
+        ]);
+    }
 }
