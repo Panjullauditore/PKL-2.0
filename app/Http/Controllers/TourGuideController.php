@@ -2,40 +2,61 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Http\Request;
+
 class TourGuideController extends Controller
 {
-    public function index()
-{
-   $guides = [
-       [
-           'name' => 'John Doe',
-           'image' => 'images/guides/john.jpg',
-           'description' => 'Pemandu wisata berpengalaman',
-           'languages' => ['Indonesia', 'English'],
-           'rating' => 4.9,
-           'price_range' => 'Rp 300.000 - Rp 500.000',
-           'phone' => '081234567890'
-       ],
-       [
-           'name' => 'Jane Smith',
-           'image' => 'images/guides/jane.jpg',
-           'description' => 'Spesialis wisata sejarah dan budaya',
-           'languages' => ['Indonesia', 'English', 'Mandarin'],
-           'rating' => 4.8,
-           'price_range' => 'Rp 350.000 - Rp 600.000',
-           'phone' => '082345678901'
-       ],
-       [
-           'name' => 'Ahmad Yani',
-           'image' => 'images/guides/ahmad.jpg',
-           'description' => 'Ahli wisata kuliner lokal',
-           'languages' => ['Indonesia', 'English', 'Japanese'],
-           'rating' => 4.7,
-           'price_range' => 'Rp 250.000 - Rp 450.000',
-           'phone' => '083456789012'
-       ]
-   ];
+    protected $guides = [
+        [
+            'name' => 'Budi Setiawan',
+            'description' => 'Experienced local guide with extensive knowledge of Semarang\'s history and culture.',
+            'image' => 'images/tour-guides/budi-setiawan.jpg',
+            'languages' => ['Indonesia', 'English', 'Javanese'],
+            'rating' => 4.7,
+            'price_range' => 'Rp 300.000 - Rp 500.000 per day',
+            'phone' => '+62 812-3456-7890',
+            'specialties' => [
+                'Historical Tours',
+                'Cultural Experiences',
+                'Local Food Tours',
+                'Photography Tours'
+            ]
+        ],
+        [
+            'name' => 'Maria Susanti',
+            'description' => 'Multilingual tour guide specializing in architectural and heritage tours.',
+            'image' => 'images/tour-guides/maria-susanti.jpg',
+            'languages' => ['Indonesia', 'English', 'Dutch'],
+            'rating' => 4.5,
+            'price_range' => 'Rp 250.000 - Rp 450.000 per day',
+            'phone' => '+62 821-9876-5432',
+            'specialties' => [
+                'Colonial Architecture',
+                'Museum Tours',
+                'Historical Walks',
+                'Batik and Craft Workshops'
+            ]
+        ]
+    ];
 
-   return view('tour-guide.index', compact('guides')); 
-}
+    public function index()
+    {
+        return view('tour-guide.index', [
+            'guides' => $this->guides
+        ]);
+    }
+
+    public function show($id)
+    {
+        // Validate the ID
+        if ($id < 0 || $id >= count($this->guides)) {
+            abort(404, 'Tour guide not found');
+        }
+
+        $guide = $this->guides[$id];
+
+        return view('tour-guide.show', [
+            'guide' => $guide
+        ]);
+    }
 }

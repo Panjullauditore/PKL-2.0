@@ -18,6 +18,7 @@
                     </div>
 
                     {{-- Gallery --}}
+                    <h2 class="text-2xl font-bold mb-4" style="color: #FFFFFF;">Gallery</h2>
                     <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
                         @foreach($hotel['gallery'] as $image)
                         <div class="relative h-48">

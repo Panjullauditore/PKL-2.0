@@ -36,7 +36,7 @@
             <h2 class="text-3xl font-bold text-white text-center mb-12">CATEGORIES</h2>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <!-- Hotel Card -->
-                <a href="{{ route('hotel') }}" class="block">
+                <a href="{{ route('hotel.index') }}" class="block">
                     <div
                         class="bg-rose-500 rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-transform hover:-translate-y-1 cursor-pointer">
                         <div class="p-6">
@@ -54,7 +54,7 @@
                 </a>
 
                 <!-- Culinary Card -->
-                <a href="{{ route('kuliner') }}" class="block">
+                <a href="{{ route('culinary.index') }}" class="block">
                     <div
                         class="bg-orange-300 rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-transform hover:-translate-y-1 cursor-pointer">
                         <div class="p-6">
@@ -72,7 +72,7 @@
                 </a>
 
                 <!-- Shopping Card -->
-                <a href="{{ route('shopping') }}" class="block">
+                <a href="{{ route('shopping.index') }}" class="block">
                     <div
                         class="bg-emerald-400 rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-transform hover:-translate-y-1 cursor-pointer">
                         <div class="p-6">
@@ -90,7 +90,7 @@
                 </a>
 
                 <!-- Entertainment Card -->
-                <a href="{{ route('entertainment') }}" class="block">
+                <a href="{{ route('entertainment.index') }}" class="block">
                     <div
                         class="bg-cyan-400 rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-transform hover:-translate-y-1 cursor-pointer">
                         <div class="p-6">
@@ -108,7 +108,7 @@
                 </a>
 
                 <!-- Tempat Wisata -->
-                <a href="{{ route('wisata') }}" class="block">
+                <a href="{{ route('tourist-attraction.index') }}" class="block">
                     <div
                         class="bg-purple-500 rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-transform hover:-translate-y-1 cursor-pointer">
                         <div class="p-6">
@@ -118,7 +118,7 @@
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                         d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
                                 </svg>
-                                <h3 class="text-xl font-bold text-white mb-2">Wisata</h3>
+                                <h3 class="text-xl font-bold text-white mb-2">Tourist attraction</h3>
                                 <p class="text-white/80">Tempat Wisata di Semarang</p>
                             </div>
                         </div>
@@ -126,7 +126,7 @@
                 </a>
 
                 <!-- Tour Guide Card -->
-                <a href="{{ route('tour.guide') }}" class="block">
+                <a href="{{ route('tour-guide.index') }}" class="block">
                     <div
                         class="bg-lime-400 rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-transform hover:-translate-y-1 cursor-pointer">
                         <div class="p-6">
