@@ -1,6 +1,6 @@
 <nav x-data="{ open: false, scrolled: false }" 
      @scroll.window="scrolled = window.pageYOffset > 0"
-     class="fixed w-full z-50 transition-all duration-300"
+     class="fixed w-full z-50 top-0 transition-all duration-300"
      :class="{'bg-transparent': !scrolled, 'bg-gray-800/75 backdrop-blur-sm': scrolled}">
     <!-- Primary Navigation Menu -->
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -41,7 +41,7 @@
                         </x-slot>
 
                         <x-slot name="content">
-                            <x-dropdown-link :href="route('profile.edit')" class="text-gray-700">
+                            <x-dropdown-link :href="route('profile.userProfile')" class="text-gray-700">
                                 {{ __('Profile') }}
                             </x-dropdown-link>
 
