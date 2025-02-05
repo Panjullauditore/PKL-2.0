@@ -153,16 +153,16 @@
                 <div class="p-6 text-white">
                     <h2 class="text-3xl font-bold mb-8 text-center">POPULAR DESTINATIONS</h2>
                     <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                        @foreach($popularPlaces as $place)
+                        @foreach($popularPlaces as $index => $place)
                         <div class="group relative overflow-hidden rounded-lg">
                             <img src="{{ asset($place['image']) }}" alt="{{ $place['name'] }}"
                                 class="w-full h-64 object-cover transform group-hover:scale-110 transition duration-300">
                             <div class="absolute inset-0 bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 
-                                      transition duration-300 flex items-center justify-center">
+                                  transition duration-300 flex items-center justify-center">
                                 <div class="text-center p-4">
                                     <p class="text-gray-200">{{ $place['description'] }}</p>
-                                    <a href="#" class="inline-block mt-4 px-6 py-2 bg-red-600 text-white rounded-full 
-                                                  hover:bg-red-700 transition duration-300">Read More</a>
+                                    <a href="{{ route('tourist-attraction.show', $index) }}" class="inline-block mt-4 px-6 py-2 bg-red-600 text-white rounded-full 
+                                          hover:bg-red-700 transition duration-300">Read More</a>
                                 </div>
                             </div>
                         </div>
@@ -173,12 +173,13 @@
         </div>
     </div>
 
-     <!-- Footer -->
+    <!-- Footer -->
     <footer class="bg-gray-900">
         <div class="max-w-7xl mx-auto px-4 py-4">
             <div class="flex flex-col items-center text-gray-400 text-sm">
                 <div class="mb-2">Contact Us</div>
-                <a href="mailto:semarangpemkot@semarangkota" class="hover:text-white mb-1">semarangpemkot@semarangkota</a>
+                <a href="mailto:semarangpemkot@semarangkota"
+                    class="hover:text-white mb-1">semarangpemkot@semarangkota</a>
                 <span>(024) 3513366 – 3515871 Fax:(024) 3542522</span>
             </div>
             <div class="text-center text-gray-400 text-sm mt-2">
