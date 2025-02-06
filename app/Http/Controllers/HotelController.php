@@ -10,7 +10,7 @@ class HotelController extends Controller
         return [
             [
                 'name' => 'Hotel Tentrem Semarang',
-                'image' => 'images/hotel-tentrem.jpg',
+                'image' => 'img/hotel/Tentrem.png',
                 'description' => '5-star luxury hotel in downtown Semarang',
                 'address' => 'Jl. Gajahmada No.123, Semarang',
                 'rating' => 4.8,
@@ -25,7 +25,7 @@ class HotelController extends Controller
             ],
             [
                 'name' => 'Quest Hotel Semarang',
-                'image' => 'images/quest-hotel.jpg',
+                'image' => 'img/hotel/QuestHotel.png',
                 'description' => 'Modern business hotel in central location',
                 'address' => 'Jl. Plampitan No.37-39, Semarang',
                 'rating' => 4.5,
@@ -39,7 +39,7 @@ class HotelController extends Controller
             ],
             [
                 'name' => 'Louis Kienne Pandanaran',
-                'image' => 'images/louis-kienne.jpg',
+                'image' => 'img/hotel/LouisK.png',
                 'description' => 'Serviced apartment style accommodation',
                 'address' => 'Jl. Pandanaran No.18, Semarang',
                 'rating' => 4.6,

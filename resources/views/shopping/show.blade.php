@@ -17,7 +17,16 @@
                         <p class="mb-3"><i class="fas fa-map-marker-alt mr-2"></i>{{ $place['address'] }}</p>
                         <p class="mb-3"><i class="fas fa-star mr-2"></i>{{ $place['rating'] }}/5.0</p>
                         <p class="mb-3"><i class="fas fa-clock mr-2"></i>{{ $place['opening_hours'] }}</p>
+                        <p class="mb-3"><i class="fas fa-clock mr-2"></i>{{ $place['price_range'] }}</p>
                         
+                        <div class="mt-6">
+                            <h4 class="text-white text-lg font-semibold mb-3">Menu:</h4>
+                            <ul class="list-disc list-inside">
+                                @foreach($place['menu'] as $item)
+                                    <li>{{ $item }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
                     </div>
                     
                     <div class="mt-8 flex space-x-4">

@@ -18,7 +18,7 @@
                         <div class="text-gray-400">
                             <p class="mb-2"><i class="fas fa-map-marker-alt mr-2"></i>{{ $place['address'] }}</p>
                             <p class="mb-2"><i class="fas fa-star mr-2"></i>{{ $place['rating'] }}/5.0</p>
-                            <p class="mb-2"><i class="fas fa-tag mr-2"></i>{{ $place['category'] }}</p>
+                            <p class="mb-2"><i class="fas fa-money-bill-wave mr-2"></i>{{ $place['price_range'] }}</p>
                             <p><i class="fas fa-clock mr-2"></i>{{ $place['opening_hours'] }}</p>
                         </div>
                         <a href="{{ route('shopping.show', $loop->index) }}" class="inline-block mt-4 px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition duration-300">
