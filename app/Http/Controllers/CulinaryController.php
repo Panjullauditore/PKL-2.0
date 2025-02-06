@@ -9,28 +9,31 @@ class CulinaryController extends Controller
     {
         return [
             [
-                'name' => 'Lunpia Gang Lombok',
-                'image' => 'images/lunpia-gang-lombok.jpg',
-                'description' => 'Iconic Semarang spring rolls since 1950',
-                'address' => 'Gang Lombok No. 11, Semarang',
+                'name' => 'Mie Ayam Plombokan',
+                'image' => 'img/culinary/MieAyamPlombokan.png',
+                'description' => 'Mie Ayam Plombokan is a typical chicken noodle dish served with chewy noodles, savory shredded chicken, and a rich broth. Added with toppings such as fried dumplings and sliced ​​spring onions, giving a delicious and tasty taste.',
+                'address' => 'Jl. Raya Semarang - Gubug Km. 13, Bandungrejo, Mranggen, Demak Regency',
                 'rating' => 4.7,
-                'price_range' => 'Rp 15.000 - Rp 50.000',
-                'opening_hours' => '08:00 - 17:00',
+                'price_range' => 'Rp 25.000 - Rp 50.000',
+                'opening_hours' => '05:00 - 22:00',
                 'menu' => [
-                    'Lunpia Original',
-                    'Lunpia Ayam',
-                    'Lunpia Udang',
-                    'Lunpia Telur'
+                    'MIE = Asin',
+                    'YAMIE = Asin Manis',
+                    'LAMIE = Asin Pedas',
+                    'Bakso',
+                    'Nasi Goreng',
+                    'Pangsit',
+                    'Dimsum'
                 ]
             ],
             [
                 'name' => 'Tahu Gimbal Pak Edy',
-                'image' => 'images/tahu-gimbal.jpg',
+                'image' => 'img/culinary/TahuGimbalPakEdy.png',
                 'description' => 'Famous street food with unique peanut sauce',
                 'address' => 'Jl. Pemuda No. 50, Semarang',
                 'rating' => 4.5,
-                'price_range' => 'Rp 10.000 - Rp 25.000',
-                'opening_hours' => '16:00 - 22:00',
+                'price_range' => 'Rp 25.000 - Rp 50.000',
+                'opening_hours' => '12:00 - 22:00',
                 'menu' => [
                     'Tahu Gimbal Komplit',
                     'Tahu Gimbal Biasa',
@@ -38,18 +41,20 @@ class CulinaryController extends Controller
                 ]
             ],
             [
-                'name' => 'Bandeng Juwana',
-                'image' => 'images/bandeng-juwana.jpg',
-                'description' => 'Premium milkfish dishes and souvenirs',
-                'address' => 'Jl. Pandanaran No. 57, Semarang',
+                'name' => 'Gudeg Koyor Mbak Tum',
+                'image' => 'img/culinary/GudegKoyor.png',
+                'description' => 'Snug, simple eatery offering a cash-only menu of classic Javanese fare served till late.',
+                'address' => 'Jl. MT. Haryono, Wonodri, Semarang',
                 'rating' => 4.8,
-                'price_range' => 'Rp 25.000 - Rp 100.000',
-                'opening_hours' => '07:00 - 21:00',
+                'price_range' => 'Rp 25.000 - Rp 50.000',
+                'opening_hours' => '24 Hours',
                 'menu' => [
-                    'Bandeng Presto',
-                    'Bandeng Asap',
-                    'Otak-otak Bandeng',
-                    'Bandeng Teriyaki'
+                    'Nasi Gudeg',
+                    'Lontong Opor',
+                    'Ayam Goreng',
+                    'Babat Goreng',
+                    'Sambel Pete',
+                    'Koyor'
                 ]
             ],
         ];

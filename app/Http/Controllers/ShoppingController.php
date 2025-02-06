@@ -8,36 +8,37 @@ class ShoppingController extends Controller
 {
     protected $shoppingPlaces = [
         [
-            'name' => 'Paragon Mall Semarang',
-            'description' => 'A modern shopping destination in the heart of Semarang with a wide variety of stores and dining options.',
-            'image' => 'images/shopping/paragon-mall.jpg',
-            'address' => 'Jl. MT Haryono No.750-752, Semarang',
-            'rating' => 4.5,
-            'category' => 'Shopping Mall',
-            'opening_hours' => '10:00 - 22:00',
-            'brands' => [
-                'Zara', 
-                'H&M', 
-                'Uniqlo', 
-                'Nike', 
-                'Adidas'
-            ]
+            'name' => 'LumpiaCikMeMe',
+            'image' => 'img/shopping/LumpiaCikMeMe.png',
+            'description' => 'Unpretentious restaurant & shop specializing in rolls filled with crab, vegetables & fish.',
+            'address' => 'Jl. Gajahmada No.107, Miroto',
+            'rating' => 4.9,
+            'price_range' => 'Rp 25.000 - Rp 50.000',
+            'opening_hours' => '05:00 - 22:00',
+            'menu' => [
+                    'Lumpia Cik Me Me Raja Nusantara',
+                    'Lumpia Cik Me Me Ikan Kakap',
+                    'Lumpia Cik Me Me Kepiting',
+                    'Lumpia Cik Me Me KaJaMu',
+                    'Lumpia Cik Me Me Original',
+                    'Keripik Lumpia'
+                ]
         ],
         [
-            'name' => 'Java Mall Semarang',
-            'description' => 'A popular shopping center offering a mix of retail, entertainment, and dining experiences.',
-            'image' => 'images/shopping/java-mall.jpg',
-            'address' => 'Jl. MT Haryono No.970, Semarang',
-            'rating' => 4.2,
-            'category' => 'Shopping Mall',
-            'opening_hours' => '10:00 - 21:00',
-            'brands' => [
-                'Matahari', 
-                'Sports Station', 
-                'GOTO', 
-                'Miniso'
+            'name' => 'Bandeng Juwana',
+            'image' => 'img/shopping/BandengJuwana.png',
+            'description' => 'Premium milkfish dishes and souvenirs',
+            'address' => 'Jl. Gajahmada No.78-86, Kembangsari',
+            'rating' => 4.8,
+            'price_range' => 'Rp 25.000 - Rp 100.000',
+            'opening_hours' => '07:00 - 21:00',
+            'menu' => [
+                'Bandeng Presto',
+                'Bandeng Asap',
+                'Otak-otak Bandeng',
+                'Bandeng Teriyaki'
             ]
-        ]
+        ],
     ];
 
     public function index()
