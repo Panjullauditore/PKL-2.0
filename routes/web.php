@@ -38,5 +38,38 @@ Route::middleware('auth')->group(function () {
     Route::get('/admin', [App\Http\Controllers\AdminController::class, 'index'])->name('admin.dashboard');
 });
     
+// Testing Root
+Route::get('/dashboard', function () {
+    $projects = [
+        'Hotel' => 15,
+        'Culinary' => 21,
+        'Shopping' => 11,
+        'Entertainment' => 17,
+        'Tourist Attraction' => 13,
+        'Tour Guide' => 19
+    ];
+    
+    $projectTypes = array_keys($projects);
+    
+    return view('dashboard', compact('projects', 'projectTypes'));
+})->middleware(['auth'])->name('dashboard');
+
+Route::get('/places', function () {
+    return view('places');
+})->middleware(['auth'])->name('places');
+
+Route::get('/culinaries', function () {
+    return view('culinaries');
+})->middleware(['auth'])->name('culinaries');
+
+Route::get('/users', function () {
+    return view('users');
+})->middleware(['auth'])->name('users');
+
+use App\Http\Controllers\AdminController;
+
+Route::get('/dashboard', [AdminController::class, 'index'])
+    ->middleware(['auth'])
+    ->name('dashboard');
 
 require __DIR__.'/auth.php';

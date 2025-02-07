@@ -1,10 +1,15 @@
 <x-app-layout>
     <div class="py-12 bg-gray-900">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <h1 class="text-4xl font-bold text-white mb-12">Welcome, {{ Auth::user()->name }}!</h1>
+            <h1 class="text-4xl font-bold text-white">
+                <span x-data="{ text: '', fullText: 'Welcome, {{ Auth::user()->name }}!', index: 0 }" 
+                      x-init="setInterval(() => { if (index < fullText.length) { text += fullText[index]; index++; } }, 100)">
+                    <span x-text="text"></span>
+                </span>
+            </h1>
 
             <!-- Profile Grid -->
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-5">
                 <!-- Profile Card -->
                 <div class="md:col-span-1">
                     <div class="bg-gray-800 rounded-3xl p-8 shadow-sm h-full"> 
