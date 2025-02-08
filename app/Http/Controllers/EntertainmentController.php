@@ -10,11 +10,11 @@ class EntertainmentController extends Controller
         return [
             [
                 'name' => 'Dusun Semilir',
-                'image' => 'images/dusun-semilir.jpg',
-                'description' => 'Modern cultural park with traditional architecture',
+                'image' => 'img/entertainment/DusunSemilir.png',
+                'description' => 'Dusun Semilir Semarang is a tourist attraction with an eco-friendly concept that offers parks, cafes, fun rides, and interesting photo spots at the foot of Mount Ungaran, perfect for relaxing and enjoying nature.',
                 'address' => 'Jl. Soekarno-Hatta No.49, Bawen',
                 'rating' => 4.6,
-                'price_range' => 'Rp 25.000 - Rp 50.000',
+                'price_range' => 'Rp 30.000 - Rp 120.000',
                 'opening_hours' => '08:00 - 21:00',
                 'facilities' => [
                     'Photo Spots',
@@ -25,11 +25,11 @@ class EntertainmentController extends Controller
             ],
             [
                 'name' => 'Saloka Theme Park',
-                'image' => 'images/saloka.jpg',
-                'description' => 'Family-friendly theme park with various attractions',
+                'image' => 'img/entertainment/SalokaThemePark.png',
+                'description' => 'Saloka Theme Park is the largest amusement park in Central Java, offering a variety of exciting rides and attractions for all ages, from roller coasters to educational zones. Located in Semarang, this place is perfect for families who want to enjoy time together.',
                 'address' => 'Jl. Fatmawati No. 154, Tuntang',
                 'rating' => 4.5,
-                'price_range' => 'Rp 100.000 - Rp 200.000',
+                'price_range' => 'Rp 120.000 - Rp 200.000',
                 'opening_hours' => '09:00 - 18:00',
                 'facilities' => [
                     'Rides',
@@ -39,18 +39,35 @@ class EntertainmentController extends Controller
                 ]
             ],
             [
-                'name' => 'Lawang Sewu',
-                'image' => 'images/lawang-sewu.jpg',
-                'description' => 'Historic Dutch colonial building turned museum',
-                'address' => 'Jl. Pemuda, Sekayu, Semarang',
+                'name' => 'HW Tiget Club',
+                'image' => 'img/entertainment/HWTigerClub.png',
+                'description' => 'HW Tiger Club Semarang is a famous nightlife venue in Semarang, with an energetic atmosphere and various exciting events. The club offers DJ music, drinks and a comfortable space to enjoy time with friends or celebrate special moments.',
+                'address' => 'Jl. Cendrawasih No.24, Tj. Mas, Semarang',
                 'rating' => 4.7,
-                'price_range' => 'Rp 10.000 - Rp 20.000',
-                'opening_hours' => '07:00 - 17:00',
+                'price_range' => 'Rp 200.000 - Rp 500.000+',
+                'opening_hours' => '20:00 - 04:00',
                 'facilities' => [
-                    'Museum',
-                    'Photo Spots',
-                    'Tour Guide',
-                    'Gift Shop'
+                    'Live Music',
+                    'Party',
+                    'Cocktail Bar',
+                    'Karaoke',
+                    'VIP Room'
+                ]
+            ],
+            [
+                'name' => 'Babyface Karaoke',
+                'image' => 'img/entertainment/BabyfaceKaraoke.png',
+                'description' => 'Babyface Karaoke Semarang is a popular karaoke venue in Semarang, offering a wide selection of songs, comfortable rooms, and a cozy atmosphere. This place is perfect for those who want to sing their hearts out and have fun with friends.',
+                'address' => 'Blok E1/8, Jl. Anjasmoro Raya No.8, Tawangsari, Semarang',
+                'rating' => 4.6,
+                'price_range' => 'Rp 100.000 - Rp 500.000+',
+                'opening_hours' => '14:00 - 03:00',
+                'facilities' => [
+                    'Live Music',
+                    'Party',
+                    'Cocktail Bar',
+                    'Karaoke',
+                    'VIP Room'
                 ]
             ],
         ];

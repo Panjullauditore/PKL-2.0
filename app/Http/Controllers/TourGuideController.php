@@ -10,7 +10,7 @@ class TourGuideController extends Controller
         [
             'name' => 'Budi Setiawan',
             'description' => 'Experienced local guide with extensive knowledge of Semarang\'s history and culture.',
-            'image' => 'images/tour-guides/budi-setiawan.jpg',
+            'image' => 'img/tourguide/Man.png',
             'languages' => ['Indonesia', 'English', 'Javanese'],
             'rating' => 4.7,
             'price_range' => 'Rp 300.000 - Rp 500.000 per day',
@@ -25,7 +25,7 @@ class TourGuideController extends Controller
         [
             'name' => 'Maria Susanti',
             'description' => 'Multilingual tour guide specializing in architectural and heritage tours.',
-            'image' => 'images/tour-guides/maria-susanti.jpg',
+            'image' => 'img/tourguide/Woman.png',
             'languages' => ['Indonesia', 'English', 'Dutch'],
             'rating' => 4.5,
             'price_range' => 'Rp 250.000 - Rp 450.000 per day',
