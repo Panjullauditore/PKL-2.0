@@ -8,7 +8,7 @@ class TouristAttractionController extends Controller
         [
             'name' => 'Lawang Sewu',
             'description' => 'A historic building with rich cultural significance, famous for its architectural beauty and historical importance.',
-            'image' => 'img/lawang-sewu.png',
+            'image' => 'img/touristattraction/LawangSewu.png',
             'address' => 'Jl. Pemuda No.160, Semarang',
             'rating' => 4.5,
             'opening_hours' => '9:00 - 16:00',
@@ -24,7 +24,7 @@ class TouristAttractionController extends Controller
         [
             'name' => 'Sam Poo Kong Temple',
             'description' => 'A historic Chinese temple complex showcasing beautiful traditional architecture and cultural heritage.',
-            'image' => 'img/sampookong.png',
+            'image' => 'img/touristattraction/SamPooKong.png',
             'address' => 'Jl. Simongan No.129, Semarang',
             'rating' => 4.6,
             'opening_hours' => '7:00 - 20:00',
@@ -40,7 +40,7 @@ class TouristAttractionController extends Controller
         [
             'name' => 'Old Town (Kota Lama)',
             'description' => 'A beautiful colonial building in the historic Old Town district, representing Dutch architectural heritage.',
-            'image' => 'img/kota-lama.png',
+            'image' => 'img/touristattraction/KotaLama.png',
             'address' => 'Jl. Letjen Suprapto No.4, Semarang',
             'rating' => 4.4,
             'opening_hours' => '8:00 - 17:00',
@@ -56,7 +56,7 @@ class TouristAttractionController extends Controller
         [
             'name' => 'Tugu Muda Monument',
             'description' => 'An iconic monument symbolizing the spirit of struggle during the Indonesian independence movement.',
-            'image' => 'images/tourist-attractions/tugu-muda.jpg',
+            'image' => 'img/touristattraction/TuguMuda.png',
             'address' => 'Simpang Lima, Semarang',
             'rating' => 4.3,
             'opening_hours' => '24 Hours',
