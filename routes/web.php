@@ -10,6 +10,7 @@ use App\Http\Controllers\DetailController;
 use App\Http\Controllers\ShoppingController;
 use App\Http\Controllers\EntertainmentController;
 use App\Http\Controllers\TourGuideController;
+use App\Http\Controllers\AdminController;
 
 // routes/web.php
 Route::get('/', [App\Http\Controllers\DashboardController::class, 'index'])
@@ -66,8 +67,8 @@ Route::get('/users', function () {
     return view('users');
 })->middleware(['auth'])->name('users');
 
-use App\Http\Controllers\AdminController;
 
+//Admin
 Route::get('/dashboard', [AdminController::class, 'index'])
     ->middleware(['auth'])
     ->name('dashboard');

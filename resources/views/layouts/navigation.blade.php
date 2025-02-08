@@ -4,21 +4,26 @@
      :class="{'bg-transparent': !scrolled, 'bg-gray-800/75 backdrop-blur-sm': scrolled}">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between h-16">
+            <!-- Left Side -->
             <div class="flex items-center">
                 <div class="shrink-0 flex items-center">
                     <a href="{{ route('dashboard') }}">
                         <x-application-logo class="block h-9 w-auto fill-current text-white" />
                     </a>
                 </div>
-                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-nav-link :href="route('dashboard')" :active="request()->routeIs('Dashboard')" 
+            </div>
+
+            <!-- Right Side -->
+            <div class="flex items-center space-x-4">
+                <!-- Home Link -->
+                <div class="hidden sm:flex sm:items-center">
+                    <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')" 
                               class="text-white hover:text-gray-300 no-underline">
                         {{ __('Home') }}
                     </x-nav-link>
                 </div>
-            </div>
 
-            <div class="flex items-center">
+                <!-- User Dropdown -->
                 <div class="hidden sm:flex sm:items-center">
                     @auth
                         <x-dropdown align="right" width="48">
@@ -34,15 +39,17 @@
                             </x-slot>
 
                             <x-slot name="content">
-                                <x-dropdown-link :href="route('profile.userProfile')" class="text-gray-700">
-                                    {{ __('Profile') }}
-                                </x-dropdown-link>
-                                <form method="POST" action="{{ route('logout') }}">
-                                    @csrf
-                                    <x-dropdown-link :href="route('logout')" onclick="event.preventDefault(); this.closest('form').submit();" class="text-gray-700">
-                                        {{ __('Log Out') }}
+                                <div class="bg-gray-800 rounded-md ring-1 ring-black ring-opacity-5">
+                                    <x-dropdown-link :href="route('profile.userProfile')" class="text-gray-100 hover:bg-gray-700">
+                                        {{ __('Profile') }}
                                     </x-dropdown-link>
-                                </form>
+                                    <form method="POST" action="{{ route('logout') }}">
+                                        @csrf
+                                        <x-dropdown-link :href="route('logout')" onclick="event.preventDefault(); this.closest('form').submit();" class="text-gray-100 hover:bg-gray-700">
+                                            {{ __('Log Out') }}
+                                        </x-dropdown-link>
+                                    </form>
+                                </div>
                             </x-slot>
                         </x-dropdown>
                     @else
