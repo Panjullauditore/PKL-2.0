@@ -71,6 +71,6 @@ Route::get('/users', function () {
 //Admin
 Route::get('/dashboard', [AdminController::class, 'index'])
     ->middleware(['auth'])
-    ->name('dashboard');
+    ->name('admin.dashboard');
 
 require __DIR__.'/auth.php';
