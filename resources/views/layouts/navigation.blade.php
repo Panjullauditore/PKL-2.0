@@ -15,6 +15,15 @@
 
             <!-- Right Side -->
             <div class="flex items-center space-x-4">
+                <!-- manage web link -->
+                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                 @if(Auth::user() && Auth::user()->role === 'admin')
+                        <x-nav-link :href="route('admin.dashboard')" :active="request()->routeIs('admin.dashboard')" 
+                                    class="text-white hover:text-gray-300 no-underline">
+                            {{ __('Manage Web') }}
+                        </x-nav-link>
+                    @endif
+                 </div>
                 <!-- Home Link -->
                 <div class="hidden sm:flex sm:items-center">
                     <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')" 
@@ -22,6 +31,7 @@
                         {{ __('Home') }}
                     </x-nav-link>
                 </div>
+                
 
                 <!-- User Dropdown -->
                 <div class="hidden sm:flex sm:items-center">

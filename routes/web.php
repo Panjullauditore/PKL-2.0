@@ -37,7 +37,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/profile/edit', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile/edit', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile/edit', [ProfileController::class, 'destroy'])->name('profile.destroy');
-    Route::get('/admin', [App\Http\Controllers\AdminController::class, 'index'])->name('admin.dashboard');
+    Route::get('/admin', [App\Http\Controllers\AdminController::class, 'index'])->name('admin.dashboard')->middleware('admin');   
 });
     
 // Testing Root
@@ -71,7 +71,7 @@ Route::get('/users', function () {
 
 // Admin Routes
 Route::get('/dashboard', [AdminController::class, 'index'])
-    ->middleware(['auth'])
+    ->middleware(['auth', 'admin'])
     ->name('admin.dashboard');
 
     Route::prefix('admin')->group(function () {
