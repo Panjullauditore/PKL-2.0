@@ -11,6 +11,7 @@ use App\Http\Controllers\ShoppingController;
 use App\Http\Controllers\EntertainmentController;
 use App\Http\Controllers\TourGuideController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\ProjectController;
 
 // routes/web.php
 Route::get('/', [App\Http\Controllers\DashboardController::class, 'index'])
@@ -68,9 +69,14 @@ Route::get('/users', function () {
 })->middleware(['auth'])->name('users');
 
 
-//Admin
+// Admin Routes
 Route::get('/dashboard', [AdminController::class, 'index'])
     ->middleware(['auth'])
     ->name('admin.dashboard');
 
+    Route::prefix('admin')->group(function () {
+        Route::get('/projects', [ProjectController::class, 'index'])->name('admin.projects.index');
+        Route::post('/projects', [ProjectController::class, 'store'])->name('admin.projects.store');  // Pastikan route POST ada
+        Route::delete('/projects/{project}', [ProjectController::class, 'destroy'])->name('admin.projects.destroy');
+    });
 require __DIR__.'/auth.php';
