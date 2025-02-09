@@ -14,7 +14,7 @@
                 <div class="md:col-span-1">
                     <div class="bg-gray-800 rounded-3xl p-8 shadow-sm h-full"> 
                         <div class="flex flex-col items-center justify-center h-full">
-                            <img src="{{ asset('img/userProfile/' . Auth::user()->id . '.png') }}" alt="Profile"
+                            <img src="{{ asset('img/userProfile/' . Auth::user()->profile_photo_path) }}" alt="Profile"
                                 class="w-32 h-32 rounded-full mb-4">
                             <div class="flex items-center gap-2">
                                 <span class="text-xl text-white">{{'@' . Auth::user()->name }}</span>
