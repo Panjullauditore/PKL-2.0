@@ -175,8 +175,8 @@
                         <div class="flex items-center justify-center min-h-screen px-4 py-6">
                             <div class="fixed inset-0 bg-gray-900/75" @click="showModal = false"></div>
                             
-                            <div class="relative bg-gray-800 rounded-lg w-full max-w-xl p-6">
-                                <form id="projectForm" class="space-y-6">
+                            <div class="relative bg-gray-800 rounded-lg w-full max-w-xl p-6" action="{{ route('admin.store') }}" method="POST">
+                                <form id="projectForm" class="space-y-6" enctype="multipart/form-data">
                                     @csrf
                                     <input type="hidden" name="type" x-model="selectedType">
                                     

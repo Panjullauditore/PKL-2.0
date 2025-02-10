@@ -74,6 +74,8 @@ Route::get('/dashboard', [AdminController::class, 'index'])
     ->middleware(['auth', 'admin'])
     ->name('admin.dashboard');
 
+    Route::post('/admin', [AdminController::class, 'store'])->name('admin.store');
+
     Route::prefix('admin')->group(function () {
         Route::get('/projects', [ProjectController::class, 'index'])->name('admin.projects.index');
         Route::post('/projects', [ProjectController::class, 'store'])->name('admin.projects.store');  // Pastikan route POST ada
