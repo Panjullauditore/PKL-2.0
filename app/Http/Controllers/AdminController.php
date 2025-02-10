@@ -32,7 +32,7 @@ class AdminController extends Controller
         $validated = $request->validate([
             'type' => 'required|string',
             'main_image' => 'required|image|mimes:jpeg,png,jpg|max:2048',
-            'business_name' => 'required|string|max:255',
+            'places_name' => 'required|string|max:255',
             'address' => 'required|string',
             'phone' => 'required|string'
         ]);
@@ -46,7 +46,7 @@ class AdminController extends Controller
         
         $places = places::create([
             'type' => $validated['type'],
-            'name' => $validated['business_name'],
+            'name' => $validated['places_name'],
             'location' => $validated['address'],
             'phoneNum' => $validated['phone'],
             'image' => $validated['main_image']
