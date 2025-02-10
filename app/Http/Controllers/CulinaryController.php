@@ -1,7 +1,9 @@
 <?php
+
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class CulinaryController extends Controller
 {
@@ -9,6 +11,7 @@ class CulinaryController extends Controller
     {
         return [
             [
+                'id' => 0,
                 'name' => 'Mie Ayam Plombokan',
                 'image' => 'img/culinary/MieAyamPlombokan.png',
                 'description' => 'Mie Ayam Plombokan is a typical chicken noodle dish served with chewy noodles, savory shredded chicken, and a rich broth. Added with toppings such as fried dumplings and sliced ​​spring onions, giving a delicious and tasty taste.',
@@ -27,6 +30,7 @@ class CulinaryController extends Controller
                 ]
             ],
             [
+                'id' => 1,
                 'name' => 'Tahu Gimbal Pak Edy',
                 'image' => 'img/culinary/TahuGimbalPakEdy.png',
                 'description' => 'Famous street food with unique peanut sauce',
@@ -41,6 +45,7 @@ class CulinaryController extends Controller
                 ]
             ],
             [
+                'id' => 2,
                 'name' => 'Gudeg Koyor Mbak Tum',
                 'image' => 'img/culinary/GudegKoyor.png',
                 'description' => 'Snug, simple eatery offering a cash-only menu of classic Javanese fare served till late.',
@@ -60,6 +65,23 @@ class CulinaryController extends Controller
         ];
     }
 
+    private function getReviews()
+    {
+        // Example reviews with username
+        return [
+            0 => [
+                ['rating' => 5, 'comment' => 'The chicken noodles are amazing!', 'username' => 'John Doe', 'created_at' => now()->subDays(1)],
+                ['rating' => 4, 'comment' => 'Really tasty and flavorful.', 'username' => 'Jane Smith', 'created_at' => now()->subDays(3)],
+            ],
+            1 => [
+                ['rating' => 5, 'comment' => 'Best street food in town!', 'username' => 'David Miller', 'created_at' => now()->subDays(2)],
+            ],
+            2 => [
+                ['rating' => 5, 'comment' => 'Best street food in town!', 'username' => 'Cristiano Ronaldo', 'created_at' => now()->subDays(2)],
+            ],
+        ];
+    }
+
     public function index()
     {
         $kulinerPlaces = $this->getKulinerPlaces();
@@ -70,6 +92,42 @@ class CulinaryController extends Controller
     {
         $kulinerPlaces = $this->getKulinerPlaces();
         $place = $kulinerPlaces[$id] ?? abort(404);
-        return view('culinary.show', compact('place'));
+        $reviews = collect($this->getReviews()[$id] ?? [])->take(5); // Retrieve reviews
+
+        return view('culinary.show', compact('place', 'reviews'));
+    }
+
+    public function storeReview(Request $request, $placeId)
+    {
+        // Validasi inputan review
+        $validatedData = $request->validate([
+            'rating' => 'required|integer|min:1|max:5',
+            'comment' => 'required|string|max:500',
+        ]);
+
+        // Create the review
+        $review = [
+            'rating' => $validatedData['rating'],
+            'comment' => $validatedData['comment'],
+            'username' => Auth::user() ? Auth::user()->name : 'Guest', // Get username from authenticated user
+            'created_at' => now(),
+        ];
+
+        // Retrieve existing reviews
+        $reviews = $this->getReviews();
+
+        // Add the new review to the selected place
+        if (!isset($reviews[$placeId])) {
+            $reviews[$placeId] = [];
+        }
+
+        array_unshift($reviews[$placeId], $review); // Add new review at the top
+
+        return response()->json([
+            'rating' => $review['rating'],
+            'comment' => $review['comment'],
+            'username' => $review['username'],
+            'created_at' => $review['created_at']->diffForHumans(),
+        ]);
     }
 }

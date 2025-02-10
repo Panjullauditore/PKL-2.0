@@ -1,7 +1,9 @@
 <?php
+
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class HotelController extends Controller
 {
@@ -9,6 +11,7 @@ class HotelController extends Controller
     {
         return [
             [
+                'id' => 0,
                 'name' => 'Hotel Tentrem Semarang',
                 'image' => 'img/hotel/Tentrem.png',
                 'description' => '5-star luxury hotel in downtown Semarang',
@@ -24,6 +27,7 @@ class HotelController extends Controller
                 ]
             ],
             [
+                'id' => 1,
                 'name' => 'Quest Hotel Semarang',
                 'image' => 'img/hotel/QuestHotel.png',
                 'description' => 'Modern business hotel in central location',
@@ -38,6 +42,7 @@ class HotelController extends Controller
                 ]
             ],
             [
+                'id' => 2,
                 'name' => 'Louis Kienne Pandanaran',
                 'image' => 'img/hotel/LouisK.png',
                 'description' => 'Serviced apartment style accommodation',
@@ -54,6 +59,23 @@ class HotelController extends Controller
         ];
     }
 
+    private function getReviews()
+    {
+        return [
+            0 => [
+                ['rating' => 5, 'comment' => 'Excellent hotel with amazing service!', 'username' => 'John Doe', 'created_at' => now()->subDays(2)],
+                ['rating' => 4, 'comment' => 'Comfortable rooms and great location.', 'username' => 'Jane Smith', 'created_at' => now()->subDays(5)],
+                ['rating' => 4, 'comment' => 'Comfortable rooms and great location.', 'username' => 'Alice Brown', 'created_at' => now()->subDays(5)],
+            ],
+            1 => [
+                ['rating' => 4, 'comment' => 'Good value for business travelers.', 'username' => 'Mark Lee', 'created_at' => now()->subDays(3)],
+            ],
+            2 => [
+                ['rating' => 5, 'comment' => 'Perfect for long stays!', 'username' => 'Emma Davis', 'created_at' => now()->subDays(1)],
+            ]
+        ];
+    }
+
     public function index()
     {
         $hotels = $this->getHotels();
@@ -64,6 +86,8 @@ class HotelController extends Controller
     {
         $hotels = $this->getHotels();
         $hotel = $hotels[$id] ?? abort(404);
-        return view('hotel.show', compact('hotel'));
+        $reviews = collect($this->getReviews()[$id] ?? [])->take(5);
+        
+        return view('hotel.show', compact('hotel', 'reviews'));
     }
 }
