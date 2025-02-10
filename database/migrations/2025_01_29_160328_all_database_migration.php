@@ -19,6 +19,7 @@ return new class extends Migration {
             $table->string('email');
             $table->text('location');
             $table->text('desc')->nullable();
+            $table->string('image');
         });
 
         Schema::create('galeri', function (Blueprint $table) {
