@@ -64,26 +64,26 @@
                 <!-- Profile Card -->
                 <div class="bg-gray-800 rounded-3xl p-8 shadow-sm">
                     <div class="flex flex-col items-center">
-                        <img src="{{ asset('img/userProfile/' . Auth::user()->profile_photo_path) }}" alt="Profile"
-                            class="w-32 h-32 rounded-full mb-4">
-                        <div class="flex items-center gap-2">
-                            <span class="text-xl text-white">{{'@' . Auth::user()->name }}</span>
-                            <img src="{{ asset('img/flag/Flag_of_Indonesia.png') }}" alt="Flag" class="w-6">
+                            <img src="{{ asset('img/userProfile/' . Auth::user()->id . '.png') }}" alt="Profile"
+                                class="w-32 h-32 rounded-full mb-4">
+                            <div class="flex items-center gap-2">
+                                <span class="text-xl text-white">{{'@' . Auth::user()->name }}</span>
+                                <img src="{{ asset('img/flag/Flag_of_Indonesia.png') }}" alt="Flag" class="w-6">
+                            </div>
                         </div>
                     </div>
-                </div>
 
                 <!-- Info Card -->
                 <div class="md:col-span-2 bg-gray-800 rounded-3xl p-8 shadow-sm">
-                    <div class="space-y-6">
-                        <div class="flex items-center gap-4">
+                        <div class="space-y-6">
+                            <div class="flex items-center gap-4">
                             <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                     d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
                             </svg>
-                            <span class="text-white">{{ Auth::user()->name }}</span>
-                        </div>
-                        <div class="flex items-center gap-4">
+                                <span class="text-white">{{ Auth::user()->name }}</span>
+                            </div>
+                            <div class="flex items-center gap-4">
                             <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                     d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />

@@ -7,25 +7,9 @@ return new class extends Migration {
     public function up()
     {
 
-        Schema::create('admins', function (Blueprint $table) {
-            $table->id();
-            $table->string('name');
-            $table->foreignId('userID')->constrained('users')->onDelete('cascade');
-        });
-
         Schema::create('countries', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-        });
-
-        Schema::create('registered_users', function (Blueprint $table) {
-            $table->id();
-            $table->foreignId('userID')->constrained('users')->onDelete('cascade');
-            $table->string('name');
-            $table->text('bio')->nullable();
-            $table->string('email')->unique();
-            $table->string('phoneNum')->unique();
-            $table->foreignId('countryID')->constrained('countries');
         });
 
         Schema::create('places', function (Blueprint $table) {
