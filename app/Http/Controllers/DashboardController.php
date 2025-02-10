@@ -1,18 +1,18 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Http\model\places;
 
 class DashboardController extends Controller
 {
    public function index()
    {
-       $popularPlaces = array_filter(TouristAttractionController::$wisataPlaces, function($place) {
-           return $place['is_popular'] ?? false;
-       });
+    //    $popularPlaces = array_filter(TouristAttractionController::$wisataPlaces, function($place) {
+    //        return $place['is_popular'] ?? false;
+    //    });
 
        return view('dashboard', [
-           'categories' => $this->getCategories(),
-           'popularPlaces' => array_values($popularPlaces)
+           'categories' => $this->getCategories()
        ]);
    }
 

@@ -153,6 +153,13 @@
                 <div class="p-6 text-white">
                     <h2 class="text-3xl font-bold mb-8 text-center">POPULAR DESTINATIONS</h2>
                     <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                        @php
+                            $popularPlaces = [
+                                ['name' => 'Lawang Sewu', 'description' => 'A historic building in Semarang.', 'image' => 'img/lawang_sewu.jpg'],
+                                ['name' => 'Sam Poo Kong', 'description' => 'A Chinese temple in Semarang.', 'image' => 'img/sam_poo_kong.jpg'],
+                                ['name' => 'Simpang Lima', 'description' => 'A famous square in Semarang.', 'image' => 'img/simpang_lima.jpg'],
+                            ];
+                        @endphp
                         @foreach($popularPlaces as $index => $place)
                         <div class="group relative overflow-hidden rounded-lg">
                             <img src="{{ asset($place['image']) }}" alt="{{ $place['name'] }}"
