@@ -81,4 +81,25 @@ Route::get('/dashboard', [AdminController::class, 'index'])
         Route::post('/projects', [ProjectController::class, 'store'])->name('admin.projects.store');  // Pastikan route POST ada
         Route::delete('/projects/{project}', [ProjectController::class, 'destroy'])->name('admin.projects.destroy');
     });
+
+    //Testing Review
+    Route::post('/hotels/{hotelId}/reviews', [HotelController::class, 'storeReview'])
+     ->name('hotel.review.store');
+
+    Route::get('/entertainment/{entertainmentId}/reviews', [EntertainmentController::class, 'storeReview'])
+     ->name('entertainment.review.store');
+
+    Route::get('/culinary/{culinarytId}/reviews', [CulinaryController::class, 'storeReview'])
+     ->name('culinary.review.store');
+
+    Route::get('/shopping/{shoppingId}/reviews', [ShoppingController::class, 'storeReview'])
+     ->name('shopping.review.store');
+
+    Route::get('/tour-guide/{guideId}/reviews', [TourGuideController::class, 'storeReview'])
+     ->name('tour-guide.review.store'); 
+
+    Route::post('/tourist-attraction/{placeId}/review', [TouristAttractionController::class, 'storeReview'])
+     ->name('tourist-attraction.review.store');
+
+
 require __DIR__.'/auth.php';
