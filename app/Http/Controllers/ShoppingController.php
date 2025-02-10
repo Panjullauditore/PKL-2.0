@@ -8,7 +8,7 @@ class ShoppingController extends Controller
 {
     protected $shoppingPlaces = [
         [
-            'name' => 'LumpiaCikMeMe',
+            'name' => 'Lumpia Cik Me Me',
             'image' => 'img/shopping/LumpiaCikMeMe.png',
             'description' => 'Unpretentious restaurant & shop specializing in rolls filled with crab, vegetables & fish.',
             'address' => 'Jl. Gajahmada No.107, Miroto',
@@ -28,15 +28,15 @@ class ShoppingController extends Controller
             'name' => 'Bandeng Juwana',
             'image' => 'img/shopping/BandengJuwana.png',
             'description' => 'Premium milkfish dishes and souvenirs',
-            'address' => 'Jl. Gajahmada No.78-86, Kembangsari',
+            'address' => 'Jl. Pandanaran No.57, Randusari, Semarang',
             'rating' => 4.8,
             'price_range' => 'Rp 25.000 - Rp 100.000',
             'opening_hours' => '07:00 - 21:00',
             'menu' => [
-                'Bandeng Presto',
-                'Bandeng Asap',
+                'Tahu Bakso',
+                'Bandeng Duri Lunak',
                 'Otak-otak Bandeng',
-                'Bandeng Teriyaki'
+                'Tahu Bakso'
             ]
         ],
     ];
