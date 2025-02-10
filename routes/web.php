@@ -68,6 +68,10 @@ Route::get('/users', function () {
     return view('users');
 })->middleware(['auth'])->name('users');
 
+Route::post('/profile/photo', [ProfileController::class, 'updatePhoto'])
+    ->name('profile.photo.update')
+    ->middleware('auth');
+
 
 // Admin Routes
 Route::get('/dashboard', [AdminController::class, 'index'])
