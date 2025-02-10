@@ -44,6 +44,37 @@ class ProfileController extends Controller
         return Redirect::route('profile.edit')->with('status', 'profile-updated');
     }
 
+    public function updatePhoto(Request $request)
+    {
+        $request->validate([
+            'profile_photo' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048'
+        ]);
+
+        $user = Auth::user();
+
+        if ($request->hasFile('profile_photo')) {
+            $image = $request->file('profile_photo');
+            $imageName = time() . '.' . $image->getClientOriginalExtension();
+            
+            // Hapus foto lama jika bukan foto default
+            if ($user->profile_photo_path !== 'userProfile.png') {
+                $oldPhotoPath = public_path('img/userProfile/' . $user->profile_photo_path);
+                if (file_exists($oldPhotoPath)) {
+                    unlink($oldPhotoPath);
+                }
+            }
+            
+            // Simpan foto baru
+            $image->move(public_path('img/userProfile'), $imageName);
+            $user->profile_photo_path = $imageName;
+            $request->user()->save();
+
+            return redirect()->back()->with('success', 'Profile photo updated successfully');
+        }
+
+        return redirect()->back()->with('error', 'No image uploaded');
+    }
+
     /**
      * Delete the user's account.
      */
