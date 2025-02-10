@@ -30,7 +30,7 @@ class CulinaryController extends Controller
                 'name' => 'Tahu Gimbal Pak Edy',
                 'image' => 'img/culinary/TahuGimbalPakEdy.png',
                 'description' => 'Famous street food with unique peanut sauce',
-                'address' => 'Jl. Pemuda No. 50, Semarang',
+                'address' => 'Jl. Pandanaran No.2, Mugassari, Semarang',
                 'rating' => 4.5,
                 'price_range' => 'Rp 25.000 - Rp 50.000',
                 'opening_hours' => '12:00 - 22:00',
