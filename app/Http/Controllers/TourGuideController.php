@@ -60,18 +60,33 @@ class TourGuideController extends Controller
 
     public function index()
     {
-        $guides = $this->getTourGuides();  // Fetch guides data
-        return view('tour-guide.index', compact('guides'));  // Pass guides data to view
+        $guides = collect($this->getTourGuides());
+        
+        $currentPage = request()->get('page', 1);
+        $perPage = 1;
+        
+        $paginatedGuides = new \Illuminate\Pagination\LengthAwarePaginator(  // Tambahkan backslash di sini
+            $guides->slice(($currentPage - 1) * $perPage, $perPage)->values(),
+            $guides->count(),
+            $perPage,
+            $currentPage,
+            [
+                'path' => request()->url(),
+                'query' => request()->query()
+            ]
+        );
+
+        return view('tour-guide.index', ['guides' => $paginatedGuides]);
     }
 
     public function show($id)
     {
+        // Method show tetap sama
         $tourGuides = $this->getTourGuides();
         $guide = $tourGuides[$id] ?? abort(404);
-        $reviews = collect($this->getReviews()[$id] ?? [])->take(5);
-
-        // Pass both $guide and $reviews to the view
+        $reviews = collect($this->getReviews()[$id] ?? [])->take(1);
         return view('tour-guide.show', compact('guide', 'reviews'));
     }
-
 }
+
+
