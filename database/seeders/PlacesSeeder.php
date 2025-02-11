@@ -123,7 +123,7 @@ class PlacesSeeder extends Seeder
                 'desc' => 'Popular karaoke venue offering a wide selection of songs and comfortable rooms.',
                 
             ],
-
+            
             // Tourist Attractions
             [
                 'id' => 13,

@@ -40,6 +40,7 @@ return new class extends Migration {
             $table->foreignId('placeID')->constrained('places');
             $table->integer('rating');
             $table->text('desc');
+            $table->timestamps();
         });
 
         Schema::create('tags', function (Blueprint $table) {

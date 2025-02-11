@@ -19,7 +19,7 @@ Route::get('/', [App\Http\Controllers\DashboardController::class, 'index'])
     ->name('dashboard');
 
 // Public routes
-route::get('/{category}', [PlacesController::class, 'index'])->name('places.index');
+route::get('/category/{category}', [PlacesController::class, 'index'])->name('places.index');
 route::get('/places/{id}', [PlacesController::class, 'show'])->name('places.show');
 Route::get('/hotel', [HotelController::class, 'index'])->name('hotel.index');
 Route::get('/hotel/{id}', [HotelController::class, 'show'])->name('hotel.show');
@@ -93,8 +93,15 @@ Route::get('/dashboard', [AdminController::class, 'index'])
         Route::get('/places/add', [AdminController::class, 'addPlace'])->name('admin.places.add');
         Route::post('/places', [AdminController::class, 'store'])->name('admin.store');
     });
+
+    Route::post('/places/{id}/reviews', [PlacesController::class, 'storeReview'])
+     ->name('review.store');
     
     //Testing Review
+    Route::post('/hotels/{hotelId}/reviews', [HotelController::class, 'storeReview'])
+     ->name('hotel.review.store');
+
+    
     Route::post('/hotels/{hotelId}/reviews', [HotelController::class, 'storeReview'])
      ->name('hotel.review.store');
 

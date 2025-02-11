@@ -55,7 +55,7 @@
                     <div x-data="{ activeTab: 'favorite' }">
                         <!-- Tab Buttons -->
                         <div class="flex space-x-4 mb-6">
-                            @foreach (['favorite', 'wishlist', 'review', 'gallery'] as $tab)
+                            @foreach (['favorite', 'wishlist', 'review'] as $tab)
                             <button @click="activeTab = '{{ $tab }}'" :class="{
                                 'bg-white text-gray-900': activeTab === '{{ $tab }}',
                                 'text-gray-400': activeTab !== '{{ $tab }}'
@@ -71,29 +71,160 @@
                             <h2 class="text-2xl font-bold text-white mb-4"
                                 x-text="activeTab.charAt(0).toUpperCase() + activeTab.slice(1)"></h2>
 
-                            <div x-show="activeTab === 'favorite'" class="text-gray-300"
+                                <div x-show="activeTab === 'favorite'" class="text-gray-300"
                                 x-transition:enter="transition ease-out duration-300"
                                 x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100">
-                                Content for favorite goes here.
+                                Content for wishlist goes here.
+                                <table class="min-w-full divide-y divide-gray-600">
+                                    <thead>
+                                        <tr>
+                                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-300 uppercase tracking-wider">Image</th>
+                                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-300 uppercase tracking-wider">Place Name</th>
+                                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-300 uppercase tracking-wider">Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody class="divide-y divide-gray-600">
+                                        @php
+                                            $dummyWishlists = [
+                                                ['image' => 'borobudur.jpg', 'name' => 'Borobudur Temple'],
+                                                ['image' => 'raja-ampat.jpg', 'name' => 'Raja Ampat Islands'],
+                                                ['image' => 'prambanan.jpg', 'name' => 'Prambanan Temple'],
+                                                ['image' => 'komodo.jpg', 'name' => 'Komodo National Park'],
+                                            ];
+                                        @endphp
+                                        @foreach($dummyWishlists as $wishlist)
+                                            <tr>
+                                                <td class="px-6 py-4 whitespace-nowrap">
+                                                    <img src="{{ 'img/default.png'}}" 
+                                                        alt="{{ $wishlist['name'] }}" 
+                                                        class="h-20 w-20 rounded-lg object-cover">
+                                                </td>
+                                                <td class="px-6 py-4 whitespace-nowrap text-gray-300">
+                                                    {{ $wishlist['name'] }}
+                                                </td>
+                                                <td class="px-6 py-4 whitespace-nowrap">
+                                                    <form class="inline">
+                                                        @csrf
+                                                        @method('DELETE')
+                                                        <button type="submit" 
+                                                                class="text-red-500 hover:text-red-700 transition-colors duration-200 flex items-center gap-2"
+                                                                onclick="return confirm('Are you sure you want to delete this item?')">
+                                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+                                                            </svg>
+                                                            Delete
+                                                        </button>
+                                                    </form>
+                                                </td>
+                                            </tr>
+                                        @endforeach
+                                    </tbody>
+                                </table>
                             </div>
 
                             <div x-show="activeTab === 'wishlist'" class="text-gray-300"
                                 x-transition:enter="transition ease-out duration-300"
                                 x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100">
                                 Content for wishlist goes here.
+                                <table class="min-w-full divide-y divide-gray-600">
+                                    <thead>
+                                        <tr>
+                                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-300 uppercase tracking-wider">Image</th>
+                                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-300 uppercase tracking-wider">Place Name</th>
+                                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-300 uppercase tracking-wider">Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody class="divide-y divide-gray-600">
+                                        @php
+                                            $dummyWishlists = [
+                                                ['image' => 'borobudur.jpg', 'name' => 'Borobudur Temple'],
+                                                ['image' => 'raja-ampat.jpg', 'name' => 'Raja Ampat Islands'],
+                                                ['image' => 'prambanan.jpg', 'name' => 'Prambanan Temple'],
+                                                ['image' => 'komodo.jpg', 'name' => 'Komodo National Park'],
+                                            ];
+                                        @endphp
+                                        @foreach($dummyWishlists as $wishlist)
+                                            <tr>
+                                                <td class="px-6 py-4 whitespace-nowrap">
+                                                    <img src="{{ 'img/default.png'}}" 
+                                                        alt="{{ $wishlist['name'] }}" 
+                                                        class="h-20 w-20 rounded-lg object-cover">
+                                                </td>
+                                                <td class="px-6 py-4 whitespace-nowrap text-gray-300">
+                                                    {{ $wishlist['name'] }}
+                                                </td>
+                                                <td class="px-6 py-4 whitespace-nowrap">
+                                                    <form class="inline">
+                                                        @csrf
+                                                        @method('DELETE')
+                                                        <button type="submit" 
+                                                                class="text-red-500 hover:text-red-700 transition-colors duration-200 flex items-center gap-2"
+                                                                onclick="return confirm('Are you sure you want to delete this item?')">
+                                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+                                                            </svg>
+                                                            Delete
+                                                        </button>
+                                                    </form>
+                                                </td>
+                                            </tr>
+                                        @endforeach
+                                    </tbody>
+                                </table>
                             </div>
 
                             <div x-show="activeTab === 'review'" class="text-gray-300"
                                 x-transition:enter="transition ease-out duration-300"
                                 x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100">
-                                Content for review goes here.
+                                Content for wishlist goes here.
+                                <table class="min-w-full divide-y divide-gray-600">
+                                    <thead>
+                                        <tr>
+                                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-300 uppercase tracking-wider">Image</th>
+                                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-300 uppercase tracking-wider">Place Name</th>
+                                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-300 uppercase tracking-wider">Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody class="divide-y divide-gray-600">
+                                        @php
+                                            $dummyWishlists = [
+                                                ['image' => 'borobudur.jpg', 'name' => 'Borobudur Temple'],
+                                                ['image' => 'raja-ampat.jpg', 'name' => 'Raja Ampat Islands'],
+                                                ['image' => 'prambanan.jpg', 'name' => 'Prambanan Temple'],
+                                                ['image' => 'komodo.jpg', 'name' => 'Komodo National Park'],
+                                            ];
+                                        @endphp
+                                        @foreach($dummyWishlists as $wishlist)
+                                            <tr>
+                                                <td class="px-6 py-4 whitespace-nowrap">
+                                                    <img src="{{ 'img/default.png'}}" 
+                                                        alt="{{ $wishlist['name'] }}" 
+                                                        class="h-20 w-20 rounded-lg object-cover">
+                                                </td>
+                                                <td class="px-6 py-4 whitespace-nowrap text-gray-300">
+                                                    {{ $wishlist['name'] }}
+                                                </td>
+                                                <td class="px-6 py-4 whitespace-nowrap">
+                                                    <form class="inline">
+                                                        @csrf
+                                                        @method('DELETE')
+                                                        <button type="submit" 
+                                                                class="text-red-500 hover:text-red-700 transition-colors duration-200 flex items-center gap-2"
+                                                                onclick="return confirm('Are you sure you want to delete this item?')">
+                                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+                                                            </svg>
+                                                            Delete
+                                                        </button>
+                                                    </form>
+                                                </td>
+                                            </tr>
+                                        @endforeach
+                                    </tbody>
+                                </table>
                             </div>
 
-                            <div x-show="activeTab === 'gallery'" class="text-gray-300"
-                                x-transition:enter="transition ease-out duration-300"
-                                x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100">
-                                Content for gallery goes here.
-                            </div>
+                            
                         </div>
                     </div>
                 </div>
