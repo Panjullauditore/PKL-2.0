@@ -14,6 +14,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\PlacesController;
 use App\Http\Controllers\AddPlacesController;
+use App\Http\Controllers\UserMonitoringController;
 
 // routes/web.php
 Route::get('/', [App\Http\Controllers\DashboardController::class, 'index'])
@@ -82,6 +83,8 @@ Route::get('/dashboard', [AdminController::class, 'index'])
     ->middleware(['auth', 'admin'])
     ->name('admin.dashboard');
 
+    Route::get('/admin/usermonitoring', [UserMonitoringController::class, 'index'])->name('admin.usermonitoring.index');
+ 
     Route::post('/admin', [AdminController::class, 'store'])->name('admin.store');
 
     Route::prefix('admin')->group(function () {
@@ -121,15 +124,5 @@ Route::get('/dashboard', [AdminController::class, 'index'])
     Route::post('/tourist-attraction/{placeId}/review', [TouristAttractionController::class, 'storeReview'])
      ->name('tourist-attraction.review.store');
 
-     
-    Route::get('/admin/addplaces', [AddPlacesController::class, 'index'])->name('addplaces.index');
-    Route::post('/admin/addplaces', [AddPlacesController::class, 'store'])->name('addplaces.store');
-    Route::delete('/admin/places/{place}', [AddPlacesController::class, 'destroy'])->name('places.destroy');
-    Route::get('/admin/places/{place}/edit', [AddPlacesController::class, 'edit'])->name('places.edit');
-    Route::put('/admin/places/{place}', [AddPlacesController::class, 'update'])->name('places.update');
-
-
-     
-     
 
 require __DIR__.'/auth.php';

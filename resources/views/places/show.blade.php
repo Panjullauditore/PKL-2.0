@@ -1,6 +1,7 @@
 <!-- Inside <head> tag, before your other stylesheets -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-@vite(['resources/css/app.css', 'resources/js/app.js'])
+
+@include('layouts.swal')
 
 <x-app-layout>
     <x-slot name="header">
@@ -88,13 +89,58 @@
                             <button type="submit" class="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700">
                                 Submit Review
                             </button>
+                            <!-- Include SweetAlert2 -->
+                        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+                        @if(!Auth::check())
+                        <script>
+                            document.getElementById('reviewForm').addEventListener('submit', function(e) {
+                                e.preventDefault();
+                                Swal.fire({
+                                    title: 'Error!',
+                                    text: 'Please login to submit a review',
+                                    icon: 'error',
+                                    confirmButtonText: 'OK'
+                                }).then((result) => {
+                                    if (result.isConfirmed) {
+                                        window.location.href = '{{ route("login") }}';
+                                    }
+                                });
+                            });
+                        </script>
+                        @else
+                        <script>
+                            document.getElementById('reviewForm').addEventListener('submit', function(e) {
+                                const rating = document.getElementById('ratingInput').value;
+                                const description = document.querySelector('textarea[name="desc"]').value;
+
+                                if (rating === '0' || description.trim() === '') {
+                                    e.preventDefault();
+                                    Swal.fire({
+                                        title: 'Error!',
+                                        text: 'Please provide both a rating and a review description',
+                                        icon: 'error',
+                                        confirmButtonText: 'OK'
+                                    });
+                                }
+                                
+                                else {
+                                    if ({{ $thisUserReview ? 'true' : 'false' }}) {
+                                        e.preventDefault();
+                                        Swal.fire({
+                                            title: 'Error!',
+                                            text: 'You have already submitted a review for this place',
+                                            icon: 'error',
+                                            confirmButtonText: 'OK'
+                                        });
+                                    }
+                                }
+                            });
+                        </script>
+                        @endif
                         </form>
 
-                        @if(session('error'))
-                        <div class="bg-red-500 text-white p-4 rounded-lg mb-4">
-                            {{ session('error') }}
-                        </div>
-                        @endif
+                        
                     </div>
 
                     <script>
@@ -104,13 +150,7 @@
                             const form = document.getElementById('reviewForm');
 
                             // Form submission validation
-                            form.addEventListener('submit', function (e) {
-                                const rating = parseInt(ratingInput.value);
-                                if (rating === 0) {
-                                    e.preventDefault();
-                                    alert('Please select a rating before submitting');
-                                }
-                            });
+                            
 
                             // Star rating functionality
                             stars.forEach(star => {
@@ -215,4 +255,4 @@
     </div>
 </x-app-layout>
 
-{{dd($reviews)}}
+{{dd($thisUserReview)}}

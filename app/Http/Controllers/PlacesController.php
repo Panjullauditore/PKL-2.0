@@ -41,14 +41,16 @@ class PlacesController extends Controller
         $reviews = review::where('placeID', $id)
             ->join('users', 'review.userID', '=', 'users.id') // Ubah 'reviews' menjadi 'review'
             ->get();
+        $thisUserReview = review::where('userID', Auth::id())->where('placeID', $id)->get();
         
-        return view('places.show', compact('place', 'reviews', 'tags', 'menu'));
+        return view('places.show', compact('place', 'reviews', 'tags', 'menu', 'thisUserReview'));
     }
 
 
     public function storeReview(Request $request, $placeId)
     {
         try {
+            
             // Validasi input
             $validated = $request->validate([
                 'rating' => 'required|integer|min:1|max:5',
