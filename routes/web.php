@@ -12,12 +12,15 @@ use App\Http\Controllers\EntertainmentController;
 use App\Http\Controllers\TourGuideController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ProjectController;
+use App\Http\Controllers\PlacesController;
 
 // routes/web.php
 Route::get('/', [App\Http\Controllers\DashboardController::class, 'index'])
     ->name('dashboard');
 
 // Public routes
+route::get('/{category}', [PlacesController::class, 'index'])->name('places.index');
+route::get('/places/{id}', [PlacesController::class, 'show'])->name('places.show');
 Route::get('/hotel', [HotelController::class, 'index'])->name('hotel.index');
 Route::get('/hotel/{id}', [HotelController::class, 'show'])->name('hotel.show');
 Route::get('/culinary', [CulinaryController::class, 'index'])->name('culinary.index');
