@@ -182,27 +182,23 @@
                                         <tr>
                                             <th class="px-6 py-3 text-left text-xs font-medium text-gray-300 uppercase tracking-wider">Image</th>
                                             <th class="px-6 py-3 text-left text-xs font-medium text-gray-300 uppercase tracking-wider">Place Name</th>
+                                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-300 uppercase tracking-wider">Desc</th>
                                             <th class="px-6 py-3 text-left text-xs font-medium text-gray-300 uppercase tracking-wider">Action</th>
                                         </tr>
                                     </thead>
                                     <tbody class="divide-y divide-gray-600">
-                                        @php
-                                            $dummyWishlists = [
-                                                ['image' => 'borobudur.jpg', 'name' => 'Borobudur Temple'],
-                                                ['image' => 'raja-ampat.jpg', 'name' => 'Raja Ampat Islands'],
-                                                ['image' => 'prambanan.jpg', 'name' => 'Prambanan Temple'],
-                                                ['image' => 'komodo.jpg', 'name' => 'Komodo National Park'],
-                                            ];
-                                        @endphp
-                                        @foreach($dummyWishlists as $wishlist)
+                                        @foreach($reviews as $review)
                                             <tr>
                                                 <td class="px-6 py-4 whitespace-nowrap">
                                                     <img src="{{ 'img/default.png'}}" 
-                                                        alt="{{ $wishlist['name'] }}" 
+                                                        alt="{{ $review['placeName'] }}" 
                                                         class="h-20 w-20 rounded-lg object-cover">
                                                 </td>
                                                 <td class="px-6 py-4 whitespace-nowrap text-gray-300">
-                                                    {{ $wishlist['name'] }}
+                                                    {{ $review['placeName'] }}
+                                                </td>
+                                                <td class="px-6 py-4 text-gray-300 break-words whitespace-normal max-w-md">
+                                                    {{ $review['desc'] }}
                                                 </td>
                                                 <td class="px-6 py-4 whitespace-nowrap">
                                                     <form class="inline">
@@ -239,3 +235,5 @@
             </div>
         </div>
 </x-app-layout>
+
+{{dd($reviews)}}

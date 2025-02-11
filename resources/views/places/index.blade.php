@@ -5,10 +5,7 @@
         </h2>
     </x-slot>
 
-    <script>
-        console.log( < ? php echo json_encode($places); ? > );
-
-    </script>
+    
 
     <div class="py-12 bg-gray-900">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
