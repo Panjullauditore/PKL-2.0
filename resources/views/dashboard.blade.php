@@ -108,7 +108,7 @@
                 </a>
 
                 <!-- Tempat Wisata -->
-                <a href="{{ route('places.index', 'TouristAttraction') }}" class="block">
+                <a href="{{ route('places.index', 'Tourist Attraction') }}" class="block">
                     <div
                         class="bg-purple-500 rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-transform hover:-translate-y-1 cursor-pointer">
                         <div class="p-6">

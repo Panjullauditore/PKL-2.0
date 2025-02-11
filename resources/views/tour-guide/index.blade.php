@@ -33,19 +33,19 @@
                 @endforeach
             </div>
         </div>
-        <!-- Pagination -->
-        @if ($places->hasPages())
+        <!-- Pagination yang benar -->
+        @if ($guides->hasPages())
         <div class="mt-6">
             <nav class="flex justify-end">
                 <ul class="flex items-center space-x-1">
                     {{-- Previous Page --}}
-                    @if ($places->onFirstPage())
+                    @if ($guides->onFirstPage())
                     <li class="px-2 py-1 text-gray-400 cursor-not-allowed">
                         <span>&lt;</span>
                     </li>
                     @else
                     <li>
-                        <a href="{{ $places->previousPageUrl() }}"
+                        <a href="{{ $guides->previousPageUrl() }}"
                             class="px-2 py-1 text-gray-300 hover:text-white transition-colors">
                             &lt;
                         </a>
@@ -53,8 +53,8 @@
                     @endif
 
                     {{-- Pagination Elements --}}
-                    @foreach ($places->getUrlRange(1, $places->lastPage()) as $page => $url)
-                    @if ($page == $places->currentPage())
+                    @foreach ($guides->getUrlRange(1, $guides->lastPage()) as $page => $url)
+                    @if ($page == $guides->currentPage())
                     <li>
                         <span class="px-4 py-2 bg-blue-600 text-white rounded-lg">
                             {{ $page }}
@@ -71,9 +71,9 @@
                     @endforeach
 
                     {{-- Next Page --}}
-                    @if ($places->hasMorePages())
+                    @if ($guides->hasMorePages())
                     <li>
-                        <a href="{{ $places->nextPageUrl() }}"
+                        <a href="{{ $guides->nextPageUrl() }}"
                             class="px-2 py-1 text-gray-300 hover:text-white transition-colors">
                             &gt;
                         </a>
@@ -87,9 +87,4 @@
             </nav>
         </div>
         @endif
-    </div>
-    </div>
-    </div>
-    </div>
-    </div>
 </x-app-layout>
