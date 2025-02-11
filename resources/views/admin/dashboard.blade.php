@@ -49,7 +49,7 @@
         </div>
 
         <!-- Main Content -->
-        <div class="flex-1 min-h-screen bg-gray-900 p-8">
+        <div class="flex-1 min-h-screen bg-gray-900 p-8 mt-7">
             <div class="flex justify-between items-center mb-8">
                 <h1 class="text-4xl font-bold text-white">
                     <span x-data="{ text: '', fullText: 'Welcome, {{ Auth::user()->name }}!', index: 0 }"
