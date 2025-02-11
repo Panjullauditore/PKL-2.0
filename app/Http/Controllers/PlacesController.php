@@ -24,7 +24,7 @@ class PlacesController extends Controller
         ->where('tags.name', $category)
         ->pluck('places_tags.placeID');
     // Ubah get() menjadi paginate()
-    $places = places::whereIn('id', $placeIDs)->paginate(1); // Menampilkan 6 item per halaman
+    $places = places::whereIn('id', $placeIDs)->paginate(6); // Menampilkan 6 item per halaman
     return view('places.index', compact('places', 'tag'));
     }
 
