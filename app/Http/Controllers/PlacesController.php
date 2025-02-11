@@ -7,6 +7,9 @@ use Illuminate\Support\Facades\Auth;
 use \App\Models\places;
 use \App\Models\tags;
 use \App\Models\places_tags;
+use \App\Models\review;
+use \App\Models\menu;
+use Illuminate\Support\Facades\DB;
 
 class PlacesController extends Controller
 {
@@ -68,22 +71,7 @@ class PlacesController extends Controller
         ];
     }
 
-    private function getReviews()
-    {
-        // Example reviews with username
-        return [
-            0 => [
-                ['rating' => 5, 'comment' => 'The chicken noodles are amazing!', 'username' => 'John Doe', 'created_at' => now()->subDays(1)],
-                ['rating' => 4, 'comment' => 'Really tasty and flavorful.', 'username' => 'Jane Smith', 'created_at' => now()->subDays(3)],
-            ],
-            1 => [
-                ['rating' => 5, 'comment' => 'Best street food in town!', 'username' => 'David Miller', 'created_at' => now()->subDays(2)],
-            ],
-            2 => [
-                ['rating' => 5, 'comment' => 'Best street food in town!', 'username' => 'Cristiano Ronaldo', 'created_at' => now()->subDays(2)],
-            ],
-        ];
-    }
+    
 
     public function index($category)
     {
@@ -98,43 +86,27 @@ class PlacesController extends Controller
 
     public function show($id)
     {
-        $place = places::where('id', $id)->get();
-        $reviews = collect($this->getReviews()[$id] ?? [])->take(5); // Retrieve reviews
+        $places = places::where('id', $id)->get();
+        $place = $places[0] ?? abort(404);
+        $tags = places_tags::where('placeID', $id)->join('tags', 'places_tags.tagID', '=', 'tags.id')->get();
+        $menu = menu::where('placeID', $id)->join('culinaries', 'menu.culinaryID', '=', 'culinaries.id')->get();
+        $reviews = review::where('placeID', $id)->join('users', 'review.userID', '=', 'users.id')->get();
         //dd($place);
-        return view('places.show', compact('place', 'reviews'));
+        
+        return view('places.show', compact('place', 'reviews', 'tags', 'menu'));
     }
 
     public function storeReview(Request $request, $placeId)
     {
+        dd($request);
         // Validasi inputan review
-        $validatedData = $request->validate([
-            'rating' => 'required|integer|min:1|max:5',
-            'comment' => 'required|string|max:500',
+        review::create([
+            'userID' => Auth::id(),
+            'placeID' => $placeId,
+            'rating' => $request->rating,
+            'desc' => $request->desc,
         ]);
 
-        // Create the review
-        $review = [
-            'rating' => $validatedData['rating'],
-            'comment' => $validatedData['comment'],
-            'username' => Auth::user() ? Auth::user()->name : 'Guest', // Get username from authenticated user
-            'created_at' => now(),
-        ];
-
-        // Retrieve existing reviews
-        $reviews = $this->getReviews();
-
-        // Add the new review to the selected place
-        if (!isset($reviews[$placeId])) {
-            $reviews[$placeId] = [];
-        }
-
-        array_unshift($reviews[$placeId], $review); // Add new review at the top
-
-        return response()->json([
-            'rating' => $review['rating'],
-            'comment' => $review['comment'],
-            'username' => $review['username'],
-            'created_at' => $review['created_at']->diffForHumans(),
-        ]);
+        return redirect()->back();
     }
 }

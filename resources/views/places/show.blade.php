@@ -9,26 +9,35 @@
         </h2>
     </x-slot>
 
-    
-    <!-- {{dd($place)}} -->
     <div class="py-12 bg-gray-900">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-gray-800 rounded-lg overflow-hidden shadow-lg mt-10">
-                <img src="{{ asset($place['image'] ?? 'images/default.jpg') }}" alt="{{ $place['name'] }}" class="w-full h-96 object-cover">
+                <img src="{{ asset($place->image ?? 'images/default.jpg') }}" alt="{{ $place->name }}" class="w-full h-96 object-cover">
                 <div class="p-8">
-                    <h3 class="text-2xl font-bold text-white mb-4">{{ $place['name'] }}</h3>
-                    <p class="text-gray-300 mb-6">{{ $place['desc'] }}</p>
+                    <h3 class="text-2xl font-bold text-white mb-4">{{ $place->name }}</h3>
+                    <p class="text-gray-300 mb-6">{{ $place->desc }}</p>
                     <div class="text-gray-400">
-                        <p class="mb-3"><i class="fas fa-map-marker-alt mr-2"></i>{{ $place['location'] }}</p>
-                        <!-- <p class="mb-3"><i class="fas fa-star mr-2"></i>{{ $place['rating'] }}/5.0</p> -->
+                        <p class="mb-3"><i class="fas fa-map-marker-alt mr-2"></i>{{ $place->location }}</p>
+                        <p class="mb-3"><i class="fas fa-phone mr-2"></i>{{ $place->phoneNum }}</p>
+                        <p class="mb-3"><i class="fas fa-envelope mr-2"></i>{{ $place->email }}</p>
                         
                         <div class="mt-6">
-                            <h4 class="text-white text-lg font-semibold mb-3">Menu:</h4>
+                            <h4 class="text-white text-lg font-semibold mb-3">Menu Items:</h4>
                             <ul class="list-disc list-inside">
-                                <!-- @foreach($place['menu'] as $item)
-                                    <li>{{ $item }}</li>
-                                @endforeach -->
+                                @foreach($menu as $menuItem)
+                                    <li class="text-gray-300">{{ $menuItem->culinary->name }}</li>
+                                @endforeach
                             </ul>
+                        </div>
+
+                        <!-- Tags Section -->
+                        <div class="mt-4">
+                            <h4 class="text-white text-lg font-semibold mb-3">Tags:</h4>
+                            <div class="flex flex-wrap gap-2">
+                                @foreach($tags as $tag)
+                                    <span class="px-3 py-1 bg-gray-700 rounded-full text-sm">{{ $tag->name }}</span>
+                                @endforeach
+                            </div>
                         </div>
                     </div>
                     
@@ -37,8 +46,9 @@
                         <h4 class="text-white text-lg font-semibold mb-6">Reviews</h4>
                         
                         <!-- Review Form -->
-                        <form id="reviewForm" method="POST" action="{{ route('culinary.review.store', $place['id']) }}" class="mb-8">
+                        <form id="reviewForm" method="POST" action="{{ route('review.store', $place->id) }}" class="mb-8">
                             @csrf
+                            <input type="hidden" name="placeID" value="{{ $place->id }}">
                             <input type="hidden" name="rating" id="ratingInput" value="0">
                             <div class="flex gap-1 mb-4" id="starRating">
                                 @for ($i = 1; $i <= 5; $i++)
@@ -46,7 +56,7 @@
                                 @endfor
                             </div>
                             <div class="mb-4">
-                                <textarea name="comment" id="comment" rows="4" placeholder="Share your own experience at this place" class="bg-gray-700 text-white rounded-lg w-full p-2" required></textarea>
+                                <textarea name="desc" rows="4" placeholder="Share your own experience at this place" class="bg-gray-700 text-white rounded-lg w-full p-2" required></textarea>
                             </div>
                             <button type="submit" class="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700">Submit Review</button>
                         </form>
@@ -58,28 +68,25 @@
                                     <div class="flex items-center mb-2">
                                         <div class="flex text-yellow-400">
                                             @for ($i = 1; $i <= 5; $i++)
-                                                @if ($i <= $review['rating'])
+                                                @if ($i <= $review->rating)
                                                     <i class="fas fa-star"></i>
                                                 @else
                                                     <i class="far fa-star"></i>
                                                 @endif
                                             @endfor
                                         </div>
-                                        <span class="text-gray-400 ml-2">{{ $review['created_at']->diffForHumans() }}</span>
+                                        
                                     </div>
-                                    <!-- Display Username -->
-                                    <p class="text-gray-300 font-semibold">{{ $review['username'] }}</p>
-                                    <p class="text-gray-300">{{ $review['comment'] }}</p>
+                                    <p class="text-gray-300 font-semibold">{{ $review->user->name }}</p>
+                                    <p class="text-gray-300">{{ $review->desc }}</p>
                                 </div>
                             @endforeach
                         </div>
                     </div>
-
-                    <a href="{{ route('places.index', 'Restaurant') }}" class="inline-block mt-8 px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition duration-300">
-                        Back to Culinary
-                    </a>
                 </div>
             </div>
         </div>
     </div>
 </x-app-layout>
+
+{{dd($reviews)}}
