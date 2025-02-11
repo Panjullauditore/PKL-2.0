@@ -28,9 +28,25 @@ class ProfileController extends Controller
             $review->placeImage = $place ? $place->image : 'default.jpg';
             return $review;
         });
+        $wishlist = Wishlist::where('userID', $user->id)->get();
+        $wishlist = $wishlist->map(function ($wishlist) {
+            $place = Places::find($wishlist->placeID);
+            $wishlist->placeName = $place ? $place->name : 'Unknown Place';
+            $wishlist->placeImage = $place ? $place->image : 'default.jpg';
+            return $wishlist;
+        });
+        $favorites = Favorites::where('userID', $user->id)->get();
+        $favorites = $favorites->map(function ($favorite) {
+            $place = Places::find($favorite->placeID);
+            $favorite->placeName = $place ? $place->name : 'Unknown Place';
+            $favorite->placeImage = $place ? $place->image : 'default.jpg';
+            return $favorite;
+        });
         return view('profile.userProfile', [
             'user' => $request->user(),
-            'reviews' => $reviews
+            'reviews' => $reviews,
+            'wishlist' => $wishlist,
+            'favorites' => $favorites
         ]);
     }
 

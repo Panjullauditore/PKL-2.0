@@ -84,23 +84,15 @@
                                         </tr>
                                     </thead>
                                     <tbody class="divide-y divide-gray-600">
-                                        @php
-                                            $dummyWishlists = [
-                                                ['image' => 'borobudur.jpg', 'name' => 'Borobudur Temple'],
-                                                ['image' => 'raja-ampat.jpg', 'name' => 'Raja Ampat Islands'],
-                                                ['image' => 'prambanan.jpg', 'name' => 'Prambanan Temple'],
-                                                ['image' => 'komodo.jpg', 'name' => 'Komodo National Park'],
-                                            ];
-                                        @endphp
-                                        @foreach($dummyWishlists as $wishlist)
+                                        @foreach($favorites as $favorite)
                                             <tr>
                                                 <td class="px-6 py-4 whitespace-nowrap">
                                                     <img src="{{ 'img/default.png'}}" 
-                                                        alt="{{ $wishlist['name'] }}" 
+                                                        alt="{{ $favorite['placeName'] }}" 
                                                         class="h-20 w-20 rounded-lg object-cover">
                                                 </td>
                                                 <td class="px-6 py-4 whitespace-nowrap text-gray-300">
-                                                    {{ $wishlist['name'] }}
+                                                    {{ $favorite['placeName'] }}
                                                 </td>
                                                 <td class="px-6 py-4 whitespace-nowrap">
                                                     <form class="inline">
@@ -135,23 +127,15 @@
                                         </tr>
                                     </thead>
                                     <tbody class="divide-y divide-gray-600">
-                                        @php
-                                            $dummyWishlists = [
-                                                ['image' => 'borobudur.jpg', 'name' => 'Borobudur Temple'],
-                                                ['image' => 'raja-ampat.jpg', 'name' => 'Raja Ampat Islands'],
-                                                ['image' => 'prambanan.jpg', 'name' => 'Prambanan Temple'],
-                                                ['image' => 'komodo.jpg', 'name' => 'Komodo National Park'],
-                                            ];
-                                        @endphp
-                                        @foreach($dummyWishlists as $wishlist)
+                                        @foreach($wishlist as $Wishlist)
                                             <tr>
                                                 <td class="px-6 py-4 whitespace-nowrap">
                                                     <img src="{{ 'img/default.png'}}" 
-                                                        alt="{{ $wishlist['name'] }}" 
+                                                        alt="{{ $wishlist['placeName'] }}" 
                                                         class="h-20 w-20 rounded-lg object-cover">
                                                 </td>
                                                 <td class="px-6 py-4 whitespace-nowrap text-gray-300">
-                                                    {{ $wishlist['name'] }}
+                                                    {{ $wishlist['placeName'] }}
                                                 </td>
                                                 <td class="px-6 py-4 whitespace-nowrap">
                                                     <form class="inline">
