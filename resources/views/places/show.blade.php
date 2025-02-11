@@ -36,7 +36,6 @@
                         <span class="text-gray-400">({{ number_format($averageRating, 1) }}/5 from
                             {{ $reviews->count() }} reviews)</span>
                     </div>
-
                     <p class="text-gray-300 mb-6">{{ $place->desc }}</p>
                     <p class="text-gray-300 mb-6">{{ $place->desc }}</p>
                     <div class="text-gray-400">
