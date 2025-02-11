@@ -3,28 +3,20 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use HasFactory;
 
-
-class Review extends Model
+class review extends Model
 {
-
-    protected $table = 'review';
+    protected $table = 'review'; // Sesuaikan dengan nama tabel di database
 
     protected $fillable = [
         'userID',
-        'placeID',
+        'placeID', 
         'rating',
-        'desc',
+        'desc'
     ];
-
+    
     public function user()
     {
         return $this->belongsTo(User::class, 'userID');
-    }
-
-    public function place()
-    {
-        return $this->belongsTo(Places::class, 'placeID');
     }
 }
