@@ -36,7 +36,7 @@
             <h2 class="text-3xl font-bold text-white text-center mb-12">CATEGORIES</h2>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <!-- Hotel Card -->
-                <a href="{{ route('hotel.index') }}" class="block">
+                <a href="{{ route('places.index', 'Hotel') }}" class="block">
                     <div
                         class="bg-rose-500 rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-transform hover:-translate-y-1 cursor-pointer">
                         <div class="p-6">
@@ -54,7 +54,7 @@
                 </a>
 
                 <!-- Culinary Card -->
-                <a href="{{ route('culinary.index') }}" class="block">
+                <a href="{{ route('places.index', 'Restaurant') }}" class="block">
                     <div
                         class="bg-orange-300 rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-transform hover:-translate-y-1 cursor-pointer">
                         <div class="p-6">
@@ -72,7 +72,7 @@
                 </a>
 
                 <!-- Shopping Card -->
-                <a href="{{ route('shopping.index') }}" class="block">
+                <a href="{{ route('places.index', 'Shopping') }}" class="block">
                     <div
                         class="bg-emerald-400 rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-transform hover:-translate-y-1 cursor-pointer">
                         <div class="p-6">
@@ -90,7 +90,7 @@
                 </a>
 
                 <!-- Entertainment Card -->
-                <a href="{{ route('entertainment.index') }}" class="block">
+                <a href="{{ route('places.index', 'Entertainment') }}" class="block">
                     <div
                         class="bg-cyan-400 rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-transform hover:-translate-y-1 cursor-pointer">
                         <div class="p-6">
@@ -108,7 +108,7 @@
                 </a>
 
                 <!-- Tempat Wisata -->
-                <a href="{{ route('tourist-attraction.index') }}" class="block">
+                <a href="{{ route('places.index', 'TouristAttraction') }}" class="block">
                     <div
                         class="bg-purple-500 rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-transform hover:-translate-y-1 cursor-pointer">
                         <div class="p-6">

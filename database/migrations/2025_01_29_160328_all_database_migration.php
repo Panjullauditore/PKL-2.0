@@ -19,7 +19,7 @@ return new class extends Migration {
             $table->string('email');
             $table->text('location');
             $table->text('desc')->nullable();
-            $table->string('image');
+            $table->string('image')->default('default.jpg');
         });
 
         Schema::create('galeri', function (Blueprint $table) {
@@ -56,7 +56,8 @@ return new class extends Migration {
         Schema::create('culinaries', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('image');
+            $table->string('image')->default('default.jpg');
+            $table->text('desc');
         });
 
         Schema::create('menu', function (Blueprint $table) {
