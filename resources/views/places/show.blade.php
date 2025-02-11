@@ -78,7 +78,7 @@
                                         
                                     </div>
                                     <p class="text-gray-300 font-semibold">{{ $review->user->name }}</p>
-                                    <p class="text-gray-300">{{ $review->desc }}</p>
+                                    <p class="text-gray-300 break-words whitespace-normal max-w-xxxl">{{ $review->desc }}</p>
                                 </div>
                             @endforeach
                         </div>
