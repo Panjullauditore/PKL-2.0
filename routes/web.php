@@ -86,6 +86,11 @@ Route::get('/dashboard', [AdminController::class, 'index'])
         Route::delete('/projects/{project}', [ProjectController::class, 'destroy'])->name('admin.projects.destroy');
     });
 
+    Route::middleware(['auth'])->prefix('admin')->group(function () {
+        Route::get('/places/add', [AdminController::class, 'addPlace'])->name('admin.places.add');
+        Route::post('/places', [AdminController::class, 'store'])->name('admin.store');
+    });
+    
     //Testing Review
     Route::post('/hotels/{hotelId}/reviews', [HotelController::class, 'storeReview'])
      ->name('hotel.review.store');

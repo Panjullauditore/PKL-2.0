@@ -21,3 +21,8 @@
         -webkit-backdrop-filter: blur(8px);
     }
 }
+
+
+select[multiple] {
+    min-height: 120px;
+}
