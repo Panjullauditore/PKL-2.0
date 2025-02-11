@@ -74,15 +74,15 @@ class PlacesController extends Controller
     
 
     public function index($category)
-    {
-        $tag = $category;
-        $placeIDs = places_tags::join('tags', 'places_tags.tagID', '=', 'tags.id')
-            ->where('tags.name', $category)
-            ->pluck('places_tags.placeID');
-        $places = places::whereIn('id', $placeIDs)->get();
-        // dd($places);
-        return view('places.index', compact('places', 'tag'));
-    }
+{
+    $tag = $category;
+    $placeIDs = places_tags::join('tags', 'places_tags.tagID', '=', 'tags.id')
+        ->where('tags.name', $category)
+        ->pluck('places_tags.placeID');
+    // Ubah get() menjadi paginate()
+    $places = places::whereIn('id', $placeIDs)->paginate(1); // Menampilkan 6 item per halaman
+    return view('places.index', compact('places', 'tag'));
+}
 
     public function show($id)
     {
@@ -98,7 +98,7 @@ class PlacesController extends Controller
 
     public function storeReview(Request $request, $placeId)
     {
-        dd($request);
+        // dd($request);
         // Validasi inputan review
         review::create([
             'userID' => Auth::id(),
