@@ -5,7 +5,7 @@ use Illuminate\Database\Eloquent\Model;
 use HasFactory;
 
 
-class Galeri extends Model
+class favourites extends Model
 {
 
     protected $table = 'galeri';

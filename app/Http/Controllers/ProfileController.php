@@ -8,6 +8,10 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\View\View;
+use App\Models\Review;
+use App\Models\places;
+use App\Models\Wishlist;
+use App\models\favorites;
 
 class ProfileController extends Controller
 {
@@ -16,8 +20,17 @@ class ProfileController extends Controller
      */
     public function index(Request $request): View
     {
+        $user = Auth::user();
+        $reviews = Review::where('userID', $user->id)->get();
+        $reviews = $reviews->map(function ($review) {
+            $place = Places::find($review->placeID);
+            $review->placeName = $place ? $place->name : 'Unknown Place';
+            $review->placeImage = $place ? $place->image : 'default.jpg';
+            return $review;
+        });
         return view('profile.userProfile', [
             'user' => $request->user(),
+            'reviews' => $reviews
         ]);
     }
 
