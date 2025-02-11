@@ -22,7 +22,7 @@ return new class extends Migration {
             $table->string('image')->default('default.jpg');
         });
 
-        Schema::create('favourites', function (Blueprint $table) {
+        Schema::create('favorites', function (Blueprint $table) {
             $table->id();
             $table->foreignId('userID')->constrained('users');
             $table->foreignId('placeID')->constrained('places');
