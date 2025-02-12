@@ -3,6 +3,7 @@
 use App\Http\Controllers\ProfileController;
 // use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\TouristAttractionController;
+
 use App\Http\Controllers\CulinaryController;
 use App\Http\Controllers\HotelController;
 use Illuminate\Support\Facades\Route;
@@ -15,6 +16,7 @@ use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\PlacesController;
 use App\Http\Controllers\AddPlacesController;
 use App\Http\Controllers\UserMonitoringController;
+use App\Http\Controllers\AddCulinaryController;
 
 // routes/web.php
 Route::get('/', [App\Http\Controllers\DashboardController::class, 'index'])
@@ -129,4 +131,14 @@ Route::get('/dashboard', [AdminController::class, 'index'])
      Route::delete('/admin/places/{place}', [AddPlacesController::class, 'destroy'])->name('places.destroy');
      Route::get('/admin/places/{place}/edit', [AddPlacesController::class, 'edit'])->name('places.edit');
      Route::put('/admin/places/{place}', [AddPlacesController::class, 'update'])->name('places.update');
+
+     Route::get('/admin/addculinary', [AddCulinaryController::class, 'index'])->name('addculinary.index');
+     Route::post('/admin/addculinary', [AddCulinaryController::class, 'store'])->name('addculinary.store');
+     Route::get('addculinary/edit/{id}', [CulinaryController::class, 'edit'])->name('addculinary.edit');
+
+
+
+
+     
+     
 require __DIR__.'/auth.php';
