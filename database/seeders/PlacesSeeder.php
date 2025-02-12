@@ -21,6 +21,7 @@ class PlacesSeeder extends Seeder
                 'email' => 'info.semarang@hoteltentrem.com',
                 'location' => 'Jl. Gajahmada No.123, Semarang',
                 'desc' => '5-star luxury hotel in downtown Semarang',
+                'image' => 'img/places/HotelTentrem.png',
                 
             ],
             [
@@ -29,7 +30,8 @@ class PlacesSeeder extends Seeder
                 'email' => 'SimpangLimaInfo@Quest-Hotels.com',
                 'location' => 'Jl. Plampitan No.37-39, Semarang',
                 'desc' => 'Modern business hotel in central location',
-                
+                'image' => 'img/places/QuestHotel.png',
+
             ],
             [
                 'name' => 'Louis Kienne Pandanaran',
@@ -37,6 +39,7 @@ class PlacesSeeder extends Seeder
                 'email' => 'Info@louisworldwide.com',
                 'location' => 'Jl. Pandanaran No.18, Semarang',
                 'desc' => 'Serviced apartment style accommodation',
+                'image' => 'img/places/LouisKienne.png',
                 
             ],
             [
@@ -45,6 +48,7 @@ class PlacesSeeder extends Seeder
                 'email' => '',
                 'location' => 'Jl. Raya Semarang - Gubug Km. 13, Bandungrejo, Mranggen, Demak Regency',
                 'desc' => 'Mie Ayam Plombokan is a typical chicken noodle dish served with chewy noodles, savory shredded chicken, and a rich broth.',
+                'image' => 'img/places/MieAyamPelombokan.png',
                 
             ],
             [
@@ -53,6 +57,7 @@ class PlacesSeeder extends Seeder
                 'email' => '',
                 'location' => 'Jl. Pandanaran No.2, Mugassari, Semarang',
                 'desc' => 'Famous street food with unique peanut sauce',
+                'image' => 'img/places/TahuGimbalPakEdy.png',
                 
             ],
             [
@@ -61,6 +66,7 @@ class PlacesSeeder extends Seeder
                 'email' => '',
                 'location' => 'Jl. MT. Haryono, Wonodri, Semarang',
                 'desc' => 'Snug, simple eatery offering a cash-only menu of classic Javanese fare served till late.',
+                'image' => 'img/places/GudegKoyorMbakTum.png',
                 
             ],
             [
@@ -69,6 +75,7 @@ class PlacesSeeder extends Seeder
                 'email' => '',
                 'location' => 'Jl. Gajahmada No.107, Miroto',
                 'desc' => 'Unpretentious restaurant & shop specializing in rolls filled with crab, vegetables & fish.',
+                'image' => 'img/places/LumpiaCikMeMe.png',
                 
             ],
             [
@@ -77,6 +84,7 @@ class PlacesSeeder extends Seeder
                 'email' => '',
                 'location' => 'Jl. Pandanaran No.57, Randusari, Semarang',
                 'desc' => 'Premium milkfish dishes and souvenirs',
+                'image' => 'img/places/BandengJuwana.png',
                 
             ],
             [
@@ -85,6 +93,7 @@ class PlacesSeeder extends Seeder
                 'email' => 'info@dusunsemilir.com',
                 'location' => 'Jl. Soekarno-Hatta No.49, Bawen',
                 'desc' => 'Eco-friendly tourist attraction with parks, cafes, fun rides, and interesting photo spots at the foot of Mount Ungaran.',
+                'image' => 'img/places/DusunSemilir.png',
                 
             ],
             [
@@ -93,7 +102,8 @@ class PlacesSeeder extends Seeder
                 'email' => 'booking@salokathemepark.com',
                 'location' => 'Jl. Fatmawati No. 154, Tuntang',
                 'desc' => 'Largest amusement park in Central Java, offering exciting rides and attractions for all ages.',
-                
+                'image' => 'img/places/SalokaThemePark.png',
+
             ],
             [
                 'name' => 'HW Tiget Club',
@@ -101,6 +111,7 @@ class PlacesSeeder extends Seeder
                 'email' => 'reservations@hwtigerclub.com',
                 'location' => 'Jl. Cendrawasih No.24, Tj. Mas, Semarang',
                 'desc' => 'Famous nightlife venue with an energetic atmosphere, DJ music, and exciting events.',
+                'image' => 'img/places/HWTigerClub.png',
                 
             ],
             [
@@ -109,6 +120,7 @@ class PlacesSeeder extends Seeder
                 'email' => 'booking@babyfacekaraoke.com',
                 'location' => 'Blok E1/8, Jl. Anjasmoro Raya No.8, Tawangsari, Semarang',
                 'desc' => 'Popular karaoke venue offering a wide selection of songs and comfortable rooms.',
+                'image' => 'img/places/BabyFaceKaraoke.png',
                 
             ],
             
@@ -119,7 +131,8 @@ class PlacesSeeder extends Seeder
                 'email' => 'info@lawangsewu.com',
                 'location' => 'Jl. Pemuda No.160, Semarang',
                 'desc' => 'A historic building with rich cultural significance, famous for its architectural beauty and historical importance.',
-                
+                'image' => 'img/places/LawangSewu.png',
+
             ],
             [
                 'name' => 'Sam Poo Kong Temple',
@@ -127,15 +140,17 @@ class PlacesSeeder extends Seeder
                 'email' => 'contact@sampoookong.com',
                 'location' => 'Jl. Simongan No.129, Semarang',
                 'desc' => 'A historic Chinese temple complex showcasing beautiful traditional architecture and cultural heritage.',
-                
+                'image' => 'img/places/SamPooKong.png',
+
             ],
             [
-                'name' => 'Old Town (Kota Lama)',
+                'name' => 'Kota Lama',
                 'phonenum' => '(024) 7890-1234',
                 'email' => 'tourism@kotalama.semarang.go.id',
                 'location' => 'Jl. Letjen Suprapto No.4, Semarang',
                 'desc' => 'A beautiful colonial building in the historic Old Town district, representing Dutch architectural heritage.',
-                
+                'image' => 'img/places/KotaLama.png',
+
             ],
             [
                 'name' => 'Tugu Muda Monument',
@@ -143,7 +158,8 @@ class PlacesSeeder extends Seeder
                 'email' => 'info@tugumuda.semarang.go.id',
                 'location' => 'Simpang Lima, Semarang',
                 'desc' => 'An iconic monument symbolizing the spirit of struggle during the Indonesian independence movement.',
-                
+                'image' => 'img/places/TuguMuda.png',
+
             ],
             [
                 'name' => 'Grand Mosque of Central Java',
@@ -151,6 +167,7 @@ class PlacesSeeder extends Seeder
                 'email' => 'info@masjidagung.id',
                 'location' => 'Jl. Gajah Raya, Gayamsari, Semarang',
                 'desc' => 'Magnificent mosque featuring stunning Islamic architecture and spacious prayer halls.',
+                'image' => 'img/places/MasjidAgung.png',
             ],
             [
                 'name' => 'Brown Canyon',
@@ -158,6 +175,7 @@ class PlacesSeeder extends Seeder
                 'email' => 'info@browncanyon.id',
                 'location' => 'Rowosari, Tembalang, Semarang',
                 'desc' => 'Former quarry turned into a beautiful canyon with stunning views and photo opportunities.',
+                'image' => 'img/places/BrownCanyon.png',
             ],
             [
                 'name' => 'Goa Kreo',
@@ -165,6 +183,7 @@ class PlacesSeeder extends Seeder
                 'email' => 'tourism@goakreo.com',
                 'location' => 'Kandri, Gunungpati, Semarang',
                 'desc' => 'Historic cave with legendary tales and beautiful surrounding reservoir.',
+                'image' => 'img/places/GoaKreo.png',
             ],
             [
                 'name' => 'Harris Hotel Semarang',
@@ -172,6 +191,7 @@ class PlacesSeeder extends Seeder
                 'email' => 'info@harrissemarang.com',
                 'location' => 'Jl. Ahmad Yani No.138, Semarang',
                 'desc' => 'Modern business hotel with comfortable amenities and strategic location.',
+                'image' => 'img/places/HarrisHotel.png',
             ],
             [
                 'name' => 'Novotel Semarang',
@@ -179,6 +199,7 @@ class PlacesSeeder extends Seeder
                 'email' => 'reservation@novotelsemarang.com',
                 'location' => 'Jl. Pemuda No.123, Semarang',
                 'desc' => 'International standard hotel with excellent facilities and city views.',
+                'image' => 'img/places/Novotel.png',
             ],
             [
                 'name' => 'Waroeng Semawis',
@@ -186,6 +207,7 @@ class PlacesSeeder extends Seeder
                 'email' => 'info@waroengsemawis.com',
                 'location' => 'Jl. Gang Warung, Semarang',
                 'desc' => 'Night market featuring various local delicacies and cultural items.',
+                'image' => 'img/places/WaroengSemawis.png',
             ],
             [
                 'name' => 'Semarang Contemporary Art Gallery',
@@ -193,6 +215,7 @@ class PlacesSeeder extends Seeder
                 'email' => 'gallery@semarangart.com',
                 'location' => 'Jl. Soekarno-Hatta No.55, Semarang',
                 'desc' => 'Modern art gallery showcasing local and international contemporary artwork.',
+                'image' => 'img/places/SemarangContemporaryArtGallery.png',
             ],
             [
                 'name' => 'Semarang Water Blaster',
@@ -200,6 +223,7 @@ class PlacesSeeder extends Seeder
                 'email' => 'fun@waterblaster.com',
                 'location' => 'Jl. Marina Raya, Semarang',
                 'desc' => 'Water park with exciting slides and pools for family entertainment.',
+                'image' => 'img/places/WaterBlasterSemarang.png',
             ],
             [
                 'name' => 'Puri Maerokoco',
@@ -207,6 +231,7 @@ class PlacesSeeder extends Seeder
                 'email' => 'info@purimaerokoco.com',
                 'location' => 'Jl. Anjasmoro, Semarang',
                 'desc' => 'Cultural park featuring miniature traditional houses from Central Java.',
+                'image' => 'img/places/PuriMaerokoco.png',
             ],
             [
                 'name' => 'Semarang Zoo',
@@ -214,6 +239,7 @@ class PlacesSeeder extends Seeder
                 'email' => 'zoo@semarang.go.id',
                 'location' => 'Jl. Tegalsari, Semarang',
                 'desc' => 'Zoo featuring various animals and educational programs.',
+                'image' => 'img/places/SemarangZoo.png',
             ],
             [
                 'name' => 'Swiss-Belhotel Semarang',
@@ -221,6 +247,7 @@ class PlacesSeeder extends Seeder
                 'email' => 'reservations@swiss-belhotelsemarang.com',
                 'location' => 'Jl. Abdulrahman Saleh No.1, Semarang',
                 'desc' => 'Premium hotel offering luxury accommodations and meeting facilities.',
+                'image' => 'img/places/SwissBelhotel.png',
             ],
             [
                 'name' => 'Semarang Night Carnival',
@@ -228,6 +255,7 @@ class PlacesSeeder extends Seeder
                 'email' => 'carnival@semarang.com',
                 'location' => 'Simpang Lima, Semarang',
                 'desc' => 'Evening entertainment venue with rides and games.',
+                'image' => 'img/places/SemarangNightCarnival.png',
             ],
             [
                 'name' => 'Horison Ultima Semarang',
@@ -235,6 +263,7 @@ class PlacesSeeder extends Seeder
                 'email' => 'info@horisonultimasemarang.com',
                 'location' => 'Jl. MT. Haryono No.972, Lamper Kidul',
                 'desc' => 'Comfortable hotel with modern amenities and business facilities.',
+                'image' => 'img/places/HorisonUltima.png',
             ],
             [
                 'name' => 'Semarang Convention Center',
@@ -242,6 +271,7 @@ class PlacesSeeder extends Seeder
                 'email' => 'events@semarangcc.com',
                 'location' => 'Jl. Marina No.8, Semarang',
                 'desc' => 'Large convention center hosting various events and exhibitions.',
+                'image' => 'img/places/ConventionCenter.png',
             ],
             [
                 'name' => 'Kampung Pelangi',
@@ -249,6 +279,7 @@ class PlacesSeeder extends Seeder
                 'email' => 'info@kampungpelangi.id',
                 'location' => 'Jl. DR. Sutomo No.89, Semarang',
                 'desc' => 'Colorful village known for its rainbow-painted houses and cultural activities.',
+                'image' => 'img/places/KampungPelangi.png',
             ],
             [
                 'name' => 'Museum Ronggowarsito',
@@ -256,6 +287,7 @@ class PlacesSeeder extends Seeder
                 'email' => 'museum@ronggowarsito.com',
                 'location' => 'Jl. Abdulrahman Saleh No.1, Semarang',
                 'desc' => 'Historical museum showcasing Javanese culture and artifacts.',
+                'image' => 'img/places/MuseumRonggowarsito.png',
             ],
             [
                 'name' => 'Paragon Mall',
@@ -263,6 +295,7 @@ class PlacesSeeder extends Seeder
                 'email' => 'cs@paragonmall.com',
                 'location' => 'Jl. Pemuda No.118, Semarang',
                 'desc' => 'Modern shopping mall with various retail outlets and entertainment options.',
+                'image' => 'img/places/ParagonMall.png',
             ],
             [
                 'name' => 'Gedong Songo Temple',
@@ -270,6 +303,7 @@ class PlacesSeeder extends Seeder
                 'email' => 'tourism@gedongsongo.com',
                 'location' => 'Candi Gedong Songo, Bandungan',
                 'desc' => 'Ancient Hindu temple complex with stunning mountain views.',
+                'image' => 'img/places/GedongSongoTemple.png',
             ],
             [
                 'name' => 'Marina Beach',
@@ -277,6 +311,7 @@ class PlacesSeeder extends Seeder
                 'email' => 'info@marinasemarang.com',
                 'location' => 'Jl. Marina, Semarang',
                 'desc' => 'Coastal recreation area with various water activities.',
+                'image' => 'img/places/MarinaBeach.png',
             ],
             [
                 'name' => 'Sky Dining Restaurant',
@@ -284,6 +319,7 @@ class PlacesSeeder extends Seeder
                 'email' => 'reservation@skydining.com',
                 'location' => 'Jl. Sisingamangaraja No.15, Semarang',
                 'desc' => 'Rooftop restaurant offering panoramic city views.',
+                'image' => 'img/places/SkyTerrace.png',
             ],
             [
                 'name' => 'Green Valley Resort',
@@ -291,6 +327,7 @@ class PlacesSeeder extends Seeder
                 'email' => 'booking@greenvalley.com',
                 'location' => 'Jl. Ungaran Barat, Semarang',
                 'desc' => 'Mountain resort with outdoor activities and cool climate.',
+                'image' => 'img/places/GreenValleyResortBandungan.png',
             ],
             [
                 'name' => 'Heritage Coffee House',
@@ -298,20 +335,23 @@ class PlacesSeeder extends Seeder
                 'email' => 'coffee@heritage.com',
                 'location' => 'Jl. Pemuda No.56, Semarang',
                 'desc' => 'Vintage coffee shop in a restored colonial building.',
+                'image' => 'img/places/Heritage.png',
             ],
             [
-                'name' => 'Flower Garden Park',
+                'name' => 'Flower Garden Park Celosia',
                 'phonenum' => '(024) 1111-4444',
                 'email' => 'garden@flowerpark.com',
                 'location' => 'Jl. Tlogosari Raya, Semarang',
                 'desc' => 'Beautiful botanical garden featuring various flower species.',
+                'image' => 'img/places/Celosia.png',
             ],
             [
-                'name' => 'Javanese Culture Center',
+                'name' => 'Radjawali Culture Center',
                 'phonenum' => '(024) 3333-8888',
                 'email' => 'info@javaculture.com',
                 'location' => 'Jl. Diponegoro No.45, Semarang',
                 'desc' => 'Cultural center showcasing traditional Javanese arts.',
+                'image' => 'img/places/RadjawaliSemarangCultureCenter.png',
             ],
             [
                 'name' => 'Historic Train Station',
@@ -319,6 +359,7 @@ class PlacesSeeder extends Seeder
                 'email' => 'info@historictrain.com',
                 'location' => 'Jl. Tawang No.1, Semarang',
                 'desc' => 'Preserved colonial-era train station with museum.',
+                'image' => 'img/places/StasiunTawang.png',
             ],
             [
                 'name' => 'Bamboo Eco Resort',
@@ -326,6 +367,7 @@ class PlacesSeeder extends Seeder
                 'email' => 'stay@bambooresort.com',
                 'location' => 'Jl. Ungaran Selatan, Semarang',
                 'desc' => 'Eco-friendly resort built with sustainable materials.',
+                'image' => 'img/places/SumowonoBambooEcoResort.png',
             ],
             [
                 'name' => 'Sky Bridge Pandanaran',
@@ -333,6 +375,7 @@ class PlacesSeeder extends Seeder
                 'email' => 'info@skybridge.com',
                 'location' => 'Jl. Pandanaran, Mugassari, Semarang',
                 'desc' => 'Elevated park with walking trails and city views.',
+                'image' => 'img/places/SkyBridge.png',
             ],
             [
                 'name' => 'Taman Indonesia Kaya',
@@ -340,6 +383,7 @@ class PlacesSeeder extends Seeder
                 'email' => '-',
                 'location' => 'Jl. Menteri Supeno No.11 A, Mugassari, Kec. Semarang Sel., Kota Semarang, Jawa Tengah 50249',
                 'desc' => 'Small park with street food stalls, nighttime light shows & an outdoor stage for live performances.',
+                'image' => 'img/places/TamanIndonesiaKaya.png',
             ],
             [
                 'name' => 'Museum Akpol',
@@ -347,6 +391,7 @@ class PlacesSeeder extends Seeder
                 'email' => '-',
                 'location' => 'Gajahmungkur, Semarang City, Central Java 50232',
                 'desc' => 'Aset Gedung Museum Akademi Kepolisian (Akpol) beserta fasilitas penunjang dan benda-benda koleksi dari Pusat Sejarah Kepolisian Negara Republik Indonesia (Pusjarah Polri) secara resmi diserahkan kepada Akademi Kepolisian. Acara serah terima dilaksanankan di Gedung baru museum Akademi Kepolisian yang juga terletak di dalam ksatrian Akpol.',
+                'image' => 'img/places/MuseumAkpol.png',
             ],
             [
                 'name' => 'Monumen Ketenangan Jiwa',
@@ -354,6 +399,7 @@ class PlacesSeeder extends Seeder
                 'email' => '-',
                 'location' => '392W+HFQ, Semarang City, Central Java 50177',
                 'desc' => 'Indonesia memiliki sejarah panjang dalam perjuangan meraih kemerdekaan. Oleh karenanya tak heran jika di Indonesia banyak monumen yang menandai kisah perjuangan itu, tak terkecuali di Kota Semarang, Jawa Tengah (Jateng).',
+                'image' => 'img/places/MonumenKetenanganJiwa.png',
             ],
             [
                 'name' => 'Museum Rekor Dunia-Indonesia (MURI) Semarang',
@@ -361,6 +407,7 @@ class PlacesSeeder extends Seeder
                 'email' => '-',
                 'location' => 'Jl. Perintis Kemerdekaan No.275, Srondol Kulon, Kec. Banyumanik, Kota Semarang, Jawa Tengah 50263',
                 'desc' => 'Museum Rekor Dunia Indonesia – MURI mengkoleksi catatan rekor maupun prestasi luar biasa yang dimiliki oleh orang orang di Indonesia. Berkunjung ke museum gratis tanpa dipungut biaya, buka setiap hari kerja Senin sampai Jumat mulai pukul 09.00 sampai dengan pukul 14.00. Sedangkan untuk kunjungan siswa sekolah atau rombongan turis, sebaiknya membuat reservasi terlebih dahulu.',
+                'image' => 'img/places/MuseumMURI.png',
             ],
             [
                 'name' => 'Ereveld Candi',
@@ -368,6 +415,7 @@ class PlacesSeeder extends Seeder
                 'email' => '-',
                 'location' => 'Jl. Slamet, Gajahmungkur, Kota Semarang',
                 'desc' => 'Ereveld Candi merupakan sebuah pemakaman yang terletak di kawasan Candisari. Ereveld Candi sendiri adalah pemakaman bagi korban militer Belanda yang gugur saat berperang selama Perang Dunia Kedua dan juga Perang Kemerdekaan yang mayoritasnya merupakan korban perang yang terjadi di kawasan Jawa Tengah. Ereveld Candi kini menjadi sebuah tempat pembelajaran sejarah dan juga sebagai salah satu destinasi wisata yang unik yang terletak di Kota Semarang.',
+                'image' => 'img/places/EreveldCandi.png',
             ],
             [
                 'name' => 'Pasar Djohar',
@@ -375,6 +423,7 @@ class PlacesSeeder extends Seeder
                 'email' => '-',
                 'location' => 'Jl. K.H. Agus Salim, Kauman, Kota Semarang',
                 'desc' => 'Pasar Djohar merupakan salah satu bangunan bersejarah di Kota Semarang. Tak hanya kaya akan nilai ekonomi, tetapi juga memiliki nilai historis di Kota Semarang. ',
+                'image' => 'img/places/PasarDjohar.png',
             ],
             [
                 'name' => 'Mercusuar Willem III',
@@ -382,6 +431,7 @@ class PlacesSeeder extends Seeder
                 'email' => '-',
                 'location' => 'Jl. Yos Sudarso, Semarang Utara',
                 'desc' => 'Mercusuar Willem III adalah salah satu destinasi wisata yang menarik di Kota Semarang. Mercusuar ini memiliki sejarah yang panjang dan menarik, karena dibangun pada tahun 1858 oleh pemerintah kolonial Belanda. Mercusuar Willem III juga merupakan mercusuar tertua di Indonesia dan masih beroperasi hingga saat ini. Selain itu, mercusuar ini memiliki arsitektur yang indah dan menarik, dengan ketinggian mencapai 50 meter. Pengunjung dapat menikmati pemandangan Kota Semarang dari atas mercusuar, yang pastinya akan memberikan pengalaman yang tak terlupakan.',
+                'image' => 'img/places/MercusuarWillemIII.png',
             ],
             [
                 'name' => 'Oudetrap',
@@ -389,6 +439,7 @@ class PlacesSeeder extends Seeder
                 'email' => '-',
                 'location' => 'Jl. R. Suprapto Taman Srigunting Kota Lama',
                 'desc' => 'Gedung Oudetrap terletak di Jalan Taman Srigunting nomor 3B, dengan ciri memiliki tangga spiral di depan gedung, yang dibangun pada tahun 1834. Gedung Oudetrap yang terdiri atas dua lantai, dengan luas lahan 1.196 meter persegi, dan memiliki luas bangunan 1.420 meter persegi.',
+                'image' => 'img/places/Oudetrap.png',
             ],
             [
                 'name' => 'Rooms Inc Hotel',
@@ -396,6 +447,7 @@ class PlacesSeeder extends Seeder
                 'email' => '-',
                 'location' => 'Jl. Pemuda No.150 Semarang',
                 'desc' => 'Rooms Inc Hotel Pemuda Semarang yang hanya berselang 5 menit berjalan kaki dari Lawang Sewu menawarkan akomodasi cantik di tengah Kota Semarang. Hotel ini memiliki dua restoran, fasilitas pertemuan dan akses WiFi gratis di seluruh area.',
+                'image' => 'img/places/RoomsIncHotel.png',
             ],
             [
                 'name' => 'Pop! Hotel',
@@ -403,6 +455,7 @@ class PlacesSeeder extends Seeder
                 'email' => '-',
                 'location' => 'Jl. Simpang No.09, Sekayu, Kec. Semarang Tengah, Kota Semarang, Jawa Tengah 50132',
                 'desc' => 'Hotel Pop Semarang menawarkan beberapa fasilitas yang dapat Anda gunakan seperti bar, kafe, lounge, dan wifi.',
+                'imamge' => 'img/places/PopHotel.png',
             ],
             [
                 'name' => 'Awann Sewu Boutique Hotel & Suite',
@@ -410,6 +463,7 @@ class PlacesSeeder extends Seeder
                 'email' => 'info@awanngroup.com',
                 'location' => 'Jl. Simpang No.11, Sekayu, Kec. Semarang Tengah, Kota Semarang, Jawa Tengah 50132',
                 'desc' => 'Hotel dengan nuansa maskulin. Atrium megah. Pemandangan rooftop 360°. Tersedia kolam renang, bar cafe, ruang bermain anak, resto, dan wine room.',
+                'image' => 'img/places/AwannSewuBoutique.png',
             ],
             [
                 'name' => 'Aston Inn Pandanaran',
@@ -417,6 +471,7 @@ class PlacesSeeder extends Seeder
                 'email' => 'pandanaraninfo@astonhotelsinternational.com',
                 'location' => 'Jl. Pandanaran No.40, Pekunden, Kec. Semarang Tengah, Kota Semarang, Jawa Tengah 50134   ',
                 'desc' => 'ASTON Inn Pandanaran adalah hotel bintang 4 yang terletak di Semarang, Indonesia.',
+                'image' => 'img/places/AstonInnPandanaran.png',
             ],
             [
                 'name' => 'Hotel Grasia',
@@ -424,6 +479,7 @@ class PlacesSeeder extends Seeder
                 'email' => 'info@hotelgrasia.com',
                 'location' => 'Jl. Letnan Jenderal S. Parman No.29, Gajahmungkur, Kec. Semarang Sel., Kota Semarang, Jawa Tengah 50231',
                 'desc' => 'Hotel Grasia adalah hotel bintang tiga dengan konsep halal hotel, terletak di kawasan Gajahmungkur dilengkapi dengan 116 kamar yang dilengkapi fasilitas pendukung untuk mewujudkan istirahat yang berkualitas. 14 ruang pertemuan dan masjid yang luas, kami siapkan untuk mengakomodir setiap kegiatan anda dan kolega.',
+                'image' => 'img/places/HotelGrasia.png',
             ],
             [
                 'name' => 'Up-Peak Hotel Semarang (Formerly HA-KA Hotel)',
@@ -431,6 +487,7 @@ class PlacesSeeder extends Seeder
                 'email' => '-',
                 'location' => 'Jl. Ahmad Yani No.173, Wonodri, Kec. Semarang Sel., Kota Semarang, Jawa Tengah 50242',
                 'desc' => 'Up-Peak Hotel Simpang Lima Semarang Powered by Archipelago adalah hotel di lokasi yang baik, tepatnya berada di Wonodri.',
+                'image' => 'img/places/UpPeakHotel.png',
             ],
             [
                 'name' => 'Padma Hotel Semarang',
@@ -438,6 +495,7 @@ class PlacesSeeder extends Seeder
                 'email' => 'reservation.semarang@padmahotels.com',
                 'location' => 'Jl. Sultan Agung No.86, Wonotingal, Kec. Candisari, Kota Semarang, Jawa Tengah 50252',
                 'desc' => 'Padma Hotel Semarang adalah hotel di lokasi yang baik, tepatnya berada di Candisari. Resepsionis siap 24 jam untuk melayani proses check-in, check-out dan kebutuhan Anda yang lain. Jangan ragu untuk menghubungi resepsionis, kami siap melayani Anda. WiFi tersedia di seluruh area publik properti untuk membantu Anda tetap terhubung dengan keluarga dan teman.',
+                'image' => 'img/places/PadmaHotel.png',
             ],
             [
                 'name' => 'Pesta Keboen Restoran',
@@ -445,6 +503,7 @@ class PlacesSeeder extends Seeder
                 'email' => '-',
                 'location' => 'Jl. Veteran No.29, Lempongsari, Kec. Gajahmungkur, Kota Semarang, Jawa Tengah 50231',
                 'desc' => 'Straightforward restaurant serving classic Javanese dishes amid bright, traditional decor.',
+                'image' => 'img/places/PestaKeboen.png',
             ],
             [
                 'name' => 'Spiegel All Day Bar & Dining',
@@ -452,6 +511,7 @@ class PlacesSeeder extends Seeder
                 'email' => '',
                 'location' => 'Jl. Letjen Suprapto No.34, Tj. Mas, Kec. Semarang Utara, Kota Semarang, Jawa Tengah 50174',
                 'desc' => 'Salah satu tempat nongkrong dan minum yang di rekomendasi di daerah kota tua Semarang.',
+                'image' => 'img/places/SpiegelAllDay.png',
             ],
             [
                 'name' => 'Ayam Bakar Primarasa',
@@ -459,6 +519,7 @@ class PlacesSeeder extends Seeder
                 'email' => '-',
                 'location' => 'Jl. Gajahmada No.99D, Miroto, Kec. Semarang Tengah, Kota Semarang, Jawa Tengah 50134',
                 'desc' => 'Ayam Bakar Primarasa Semarang is a great place to spend your time with your family. It has a spacious dining area with large parking site.',
+                'image' => 'img/places/AyamBakarPrimarasa.png',
             ],
             [
                 'name' => 'Fat Elephant Restaurant & Coffee Shop',
@@ -466,6 +527,7 @@ class PlacesSeeder extends Seeder
                 'email' => '',
                 'location' => 'Jl. Gajahmada No.101, Miroto, Kec. Semarang Tengah, Kota Semarang, Jawa Tengah 50134',
                 'desc' => '"24 Hours Restaurant with Fusion Asian Food and Coffee blend from Bukamata, at the Ground Level of ARTOTEL Gajahmada - Semarang"',
+                'image' => 'img/places/FatElephantRestaurant.png',
             ],
             [
                 'name' => 'Aroem Restaurant & Ballroom',
@@ -473,6 +535,7 @@ class PlacesSeeder extends Seeder
                 'email' => '-',
                 'location' => 'Jl. Dr. Wahidin No.213, Kaliwiru, Kec. Candisari, Kota Semarang, Jawa Tengah 50253',
                 'desc' => 'Restoran ini menyajikan menu masakan Indonesia dan Chinese yang lezat. Dengan suasana yang nyaman, restoran ini cocok untuk acara keluarga, reuni, dan acara kantor.',
+                'image' => 'img/places/Aroem.png',
             ],
             [
                 'name' => 'The Tavern',
@@ -480,6 +543,7 @@ class PlacesSeeder extends Seeder
                 'email' => '-',
                 'location' => 'Jl. Rinjani No.1, Jawa Tengah, Kec. Gajahmungkur, Kota Semarang, Jawa Tengah 50232',
                 'desc' => 'Tempat makan yg modern dan santai menyajikan aneka hidangan khas western dan asia, dan cocktail.',
+                'image' => 'img/places/TheTavern.png',
             ],
             [
                 'name' => 'Grand Masterpiece Karaoke',
@@ -487,6 +551,7 @@ class PlacesSeeder extends Seeder
                 'email' => '',
                 'location' => 'Jl. Sultan Agung No.98, Wonotingal, Kec. Candisari, Kota Semarang, Jawa Tengah 50252',
                 'desc' => 'Serves great cocktails, Has karaoke, Serves food at bar',
+                'image' => 'img/places/GrandMasterpieceKaraoke.png',
             ],
             [
                 'name' => 'Masterpiece KTV DP Mall',
@@ -494,6 +559,7 @@ class PlacesSeeder extends Seeder
                 'email' => '',
                 'location' => 'Jl. Pemuda No.150 Lt.2, Sekayu, Kec. Semarang Tengah, Kota Semarang, Jawa Tengah 50132',
                 'desc' => 'Grand Masterpiece di design dengan konsep interior yang didominasi warna GOLD menjadikan Grand Masterpiece mewah dan glamour.',
+                'image' => 'img/places/Masterpiece.png',
             ],
             [
                 'name' => 'Anak Panah Coffee',
@@ -501,6 +567,7 @@ class PlacesSeeder extends Seeder
                 'email' => '-',
                 'location' => 'Jl. Gajahmada No.91, Miroto, Kec. Semarang Tengah, Kota Semarang, Jawa Tengah 50134',
                 'desc' => 'Anak Panah Coffee is a cozy coffee shop located in the heart of Semarang. It offers a variety of coffee drinks, snacks, and desserts in a relaxed and comfortable setting.',
+                'image' => 'img/places/AnakPanahCoffee.png',
             ],
             [
                 'name' => 'Oleh Oleh 52 Semarang',
@@ -508,6 +575,7 @@ class PlacesSeeder extends Seeder
                 'email' => '',
                 'location' => 'Karangayu, Jl. Jenderal Sudirman No.134, Cabean, Kec. Semarang Barat, Kota Semarang, Jawa Tengah 50141',
                 'desc' => 'OLEH OLEH 52 SEMARANG adalah tempat belanja oleh oleh khas Semarang yang menyediakan berbagai macam oleh oleh khas Semarang yang lezat dan enak.',
+                'image' => 'img/places/OlehOleh52.png',
             ],
             [
                 'name' => 'Wingko Babad Cap Kereta Api',
@@ -515,6 +583,7 @@ class PlacesSeeder extends Seeder
                 'email' => '-',
                 'location' => 'Jl. Cendrawasih No.14, Purwodinatan Timur, Kec. Semarang Tengah, Kota Semarang, Jawa Tengah 50137',
                 'desc' => 'Wingko Babad Cap Kereta Api adalah oleh-oleh khas Semarang yang terkenal dengan rasa yang lezat dan khas.',
+                'image' => 'img/places/WingkoBabadCapKeretaApi.png',
             ],
             [
                 'name' => 'Moaci Gemini',
@@ -522,6 +591,7 @@ class PlacesSeeder extends Seeder
                 'email' => '-',
                 'location' => 'Jl. RA. Kartini No.19, Karangturi, Kec. Semarang Tim., Kota Semarang, Jawa Tengah 50124',
                 'desc' => 'Moaci Gemini adalah oleh oleh khas Semarang yang terkenal dengan rasa yang lezat dan khas.',
+                'image' => 'img/places/MoaciGemini.png',
             ],
             [
                 'name' => 'Toko Oleh Oleh Anugerah Wingko Babat Pak Moel',
@@ -529,6 +599,7 @@ class PlacesSeeder extends Seeder
                 'email' => '-',
                 'location' => 'Jl. Batan Miroto III No.405, Miroto, Kec. Semarang Tengah, Kota Semarang, Jawa Tengah 50134',
                 'desc' => 'Toko oleh oleh Anugerah merupakan cabang kedua Toko Wingko Babat Pak Moel. Menyediakan berbagai macam makanan khas dari Semarang dan Jawa Tengah seperti Wingko Babat Pak Moel, Moaci Gemini, Lunpia, Bandeng Presto, Tahu Bakso, dll.',
+                'image' => 'img/places/TokoOlehOlehAnugerahWingkoBabatPakMoel.png',
             ],
             [
                 'name' => 'Loenpia Mbak Lien',
@@ -536,6 +607,7 @@ class PlacesSeeder extends Seeder
                 'email' => '-',
                 'location' => 'Jl. Pemuda Gg. Grajen No.1, Pandansari, Kec. Semarang Tengah, Kota Semarang, Jawa Tengah 50138',
                 'desc' => 'Loenpia Mbak Lien adalah oleh oleh khas Semarang yang terkenal dengan rasa yang lezat dan khas.',
+                'image' => 'img/places/LoenpiaMbakLien.png',
             ]
         ];
 
