@@ -3,9 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Place;
+use App\Models\places;
 use App\Models\Category;
 use App\Models\Tags;
+use App\Models\places_tags;
+use Illuminate\Support\Facades\DB;
 
 class AddPlacesController extends Controller
 {
@@ -13,7 +15,7 @@ class AddPlacesController extends Controller
     public function index()
     {
         // Mengambil semua tempat yang telah ditambahkan
-        $places = Place::all();
+        $places = places::all();
 
         // Mengambil semua tag
         $tags = tags::all();
@@ -26,23 +28,24 @@ class AddPlacesController extends Controller
 
     public function store(Request $request)
     {
-        $request->validate([
-            'place_name' => 'required|string|max:255',
-            'description' => 'required|string',
-            'email' => 'required|email',
-            'phone' => 'required|string',
-            'address' => 'required|string',
-            'tag' => 'required|array', // Validasi bahwa tag dipilih
-            'tag.*' => 'exists:tags,id', // Pastikan ID tag ada di tabel tags
-            'image' => 'nullable|image|max:2048',
-        ]);
-
-        $place = new Place();
-        $place->place_name = $request->place_name;
-        $place->description = $request->description;
+        //dd($request);
+        
+        $place = new places();
+        $place->name = $request->place_name;
+        $place->desc = $request->description;
         $place->email = $request->email;
-        $place->phone = $request->phone;
-        $place->address = $request->address;
+        $place->phoneNum = $request->phone;
+        $place->location = $request->address;
+        $place->image = $request->image;
+        $place->save();
+
+        foreach ($request->category as $tag) {
+            $places_tags = new places_tags();
+            $places_tags->placeID = $place->id;
+            $places_tags->tagID = $tag;
+            $places_tags->save();
+            
+        }
 
         if ($request->hasFile('image')) {
             $place->image = $request->file('image')->store('images', 'public');
@@ -50,10 +53,8 @@ class AddPlacesController extends Controller
 
         $place->save();
 
-        // Menyimpan relasi tag
-        $place->tags()->attach($request->tag);
-
         return redirect()->route('addplaces.index')->with('success', 'Place added successfully');
+        
     }
 
 
@@ -61,7 +62,7 @@ class AddPlacesController extends Controller
     public function destroy($id)
     {
     // Mencari tempat berdasarkan ID
-    $place = Place::findOrFail($id);
+    $place = places::findOrFail($id);
 
     // Menghapus tempat dari database
     $place->delete();
@@ -72,7 +73,7 @@ class AddPlacesController extends Controller
     public function edit($id)
     {
     // Mencari tempat berdasarkan ID
-    $place = Place::findOrFail($id);
+    $place = places::findOrFail($id);
 
     // Menampilkan halaman edit dengan data tempat
     return view('admin.editplace', compact('place'));
@@ -88,7 +89,7 @@ class AddPlacesController extends Controller
         ]);
 
         // Menyimpan perubahan tempat
-        $place = Place::findOrFail($id);
+        $place = places::findOrFail($id);
         $place->place_name = $request->place_name;
         $place->description = $request->description;
 
@@ -113,8 +114,4 @@ class AddPlacesController extends Controller
         // Return the view with the categories
         return view('admin.addplaces', compact('categories'));
     }
-
-
-    
-
 }

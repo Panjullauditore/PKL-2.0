@@ -28,9 +28,9 @@
 
                             @for ($i = 1; $i <= 5; $i++) @if ($i <=$fullStars) <i class="fas fa-star"></i>
                                 @elseif ($i == $fullStars + 1 && $hasHalfStar)
-                                <i class="fas fa-star-half-alt"></i>
+                                <i class="fas fa-star-half-alt pointer-events-none" ></i>
                                 @else
-                                <i class="far fa-star"></i>
+                                <i class="far fa-star pointer-events-none"></i>
                                 @endif
                                 @endfor
                         </div>
@@ -38,7 +38,7 @@
                             {{ $reviews->count() }} reviews)</span>
                     </div>
                     <p class="text-gray-300 mb-6">{{ $place->desc }}</p>
-                    <p class="text-gray-300 mb-6">{{ $place->desc }}</p>
+                    
                     <div class="text-gray-400">
                         <p class="mb-3"><i class="fas fa-map-marker-alt mr-2"></i>{{ $place->location }}</p>
                         <p class="mb-3"><i class="fas fa-phone mr-2"></i>{{ $place->phoneNum }}</p>
@@ -125,7 +125,7 @@
                                 }
                                 
                                 else {
-                                    if ({{ $thisUserReview ? 'true' : 'false' }}) {
+                                    if ({{ count($thisUserReview) ? 'true' : 'false' }}) {
                                         e.preventDefault();
                                         Swal.fire({
                                             title: 'Error!',
@@ -204,28 +204,7 @@
                         });
 
                     </script>
-                    {{-- Tambahkan ini di bawah form review --}}
-                    @if(session('success'))
-                    <div class="bg-green-500 text-white p-4 rounded-lg mb-4">
-                        {{ session('success') }}
-                    </div>
-                    @endif
-
-                    @if(session('error'))
-                    <div class="bg-red-500 text-white p-4 rounded-lg mb-4">
-                        {{ session('error') }}
-                    </div>
-                    @endif
-
-                    @if ($errors->any())
-                    <div class="bg-red-500 text-white p-4 rounded-lg mb-4">
-                        <ul>
-                            @foreach ($errors->all() as $error)
-                            <li>{{ $error }}</li>
-                            @endforeach
-                        </ul>
-                    </div>
-                    @endif
+                    
 
                     <!-- Display Reviews -->
                     <div id="reviewsContainer" class="space-y-6">

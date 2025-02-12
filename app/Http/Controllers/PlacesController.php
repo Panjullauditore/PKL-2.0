@@ -65,10 +65,10 @@ class PlacesController extends Controller
                 'desc' => $request->desc
             ]);
 
-            return redirect()->back()->with('success', 'Review berhasil ditambahkan');
+            return redirect()->back();
         } catch (\Exception $e) {
             return redirect()->back()
-                ->with('error', 'Gagal menambahkan review: ' . $e->getMessage())
+                
                 ->withInput();
         }
     }

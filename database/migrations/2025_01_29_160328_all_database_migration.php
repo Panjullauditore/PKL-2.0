@@ -10,6 +10,7 @@ return new class extends Migration {
         Schema::create('countries', function (Blueprint $table) {
             $table->id();
             $table->string('name');
+            $table->timestamps();
         });
 
         Schema::create('places', function (Blueprint $table) {
@@ -20,18 +21,21 @@ return new class extends Migration {
             $table->text('location');
             $table->text('desc')->nullable();
             $table->string('image')->default('default.jpg');
+            $table->timestamps();
         });
 
         Schema::create('favorites', function (Blueprint $table) {
             $table->id();
             $table->foreignId('userID')->constrained('users');
             $table->foreignId('placeID')->constrained('places');
+            $table->timestamps();
         });
 
         Schema::create('wishlist', function (Blueprint $table) {
             $table->id();
             $table->foreignId('userID')->constrained('users');
             $table->foreignId('placeID')->constrained('places');
+            $table->timestamps();
         });
 
         Schema::create('review', function (Blueprint $table) {
@@ -46,12 +50,14 @@ return new class extends Migration {
         Schema::create('tags', function (Blueprint $table) {
             $table->id();
             $table->string('name');
+            $table->timestamps();
         });
 
         Schema::create('places_tags', function (Blueprint $table) {
             $table->id();
             $table->foreignId('placeID')->constrained('places');
             $table->foreignId('tagID')->constrained('tags');
+            $table->timestamps();
         });
 
         Schema::create('culinaries', function (Blueprint $table) {
@@ -59,12 +65,14 @@ return new class extends Migration {
             $table->string('name');
             $table->string('image')->default('default.jpg');
             $table->text('desc');
+            $table->timestamps();
         });
 
         Schema::create('menu', function (Blueprint $table) {
             $table->id();
             $table->foreignId('placeID')->constrained('places');
             $table->foreignId('culinaryID')->constrained('culinaries');
+            $table->timestamps();
         });
     }
 
