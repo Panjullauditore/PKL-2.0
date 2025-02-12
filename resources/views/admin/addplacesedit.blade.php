@@ -47,6 +47,7 @@
 
                     <!-- Input for Place Name, Description, Email, Phone Number, Address, Category -->
                     <div class="space-y-4">
+                        <img src="{{ asset('storage/' . $place->image) }}" alt="Place Image" class="w-full h-64 object-cover rounded-lg">
                         <!-- Place Name -->
                         <input type="text" name="place_name" required maxlength="255" value="{{$place->name}}" 
                             class="w-full px-4 py-2 bg-gray-700 rounded-lg text-white placeholder-gray-500 @error('place_name') border-red-500 @enderror">
