@@ -48,7 +48,7 @@ class AddPlacesController extends Controller
         }
 
         if ($request->hasFile('image')) {
-            $place->image = $request->file('image')->store('images', 'public');
+            $place->image = $request->file('image')->store('img/places', 'public');
         }
 
         $place->save();
