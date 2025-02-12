@@ -100,7 +100,7 @@
                                     Upload Image
                                 </label>
                                 <span id="fileName" class="text-gray-400"></span>
-                                <input type="file" id="imageUpload" name="image" accept="image/*" class="hidden" onchange="handleMainImageUpload(event)">
+                                <input type="file" id="imageUpload" name="image" accept="image/*" class="hidden" required onchange="handleMainImageUpload(event)">
                             </div>
 
                             <script>
@@ -133,9 +133,6 @@
                         </div>
 
                         <div class="flex justify-end space-x-4 mt-4">
-                            <button type="button" @click="showModal = false" class="px-4 py-2 text-gray-400 hover:text-gray-300">
-                                Cancel
-                            </button>
                             <button type="submit" class="px-4 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700">
                                 Add Place
                             </button>

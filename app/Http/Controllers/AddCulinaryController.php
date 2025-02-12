@@ -30,7 +30,7 @@ class AddCulinaryController extends Controller
         $culinary->desc = $request->description;
 
         if ($request->hasFile('image')) {
-            $imagePath = $request->file('image')->store('culinaries', 'public');
+            $imagePath = $request->file('image')->store('img/culinaries', 'public');
             $culinary->image = $imagePath;
         }
 
