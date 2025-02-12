@@ -58,21 +58,44 @@
                         <!-- Input for Culinary Name, Description, Email, Phone Number, Address, Category -->
                         <div class="space-y-4">
                             <input type="text" name="culinary_name" placeholder="Culinary Name" class="w-full px-4 py-2 bg-gray-700 rounded-lg text-white placeholder-gray-500" required maxlength="255">
-                            <textarea name="description" placeholder="Description" class="w-full px-4 py-2 bg-gray-700 rounded-lg text-white placeholder-gray-500"></textarea>
+                            <textarea name="description" placeholder="Description" class="w-full px-4 py-2 bg-gray-700 rounded-lg text-white placeholder-gray-500" required></textarea>
 
-                             <!-- Image Upload -->
-                            <div class="w-full aspect-video bg-gray-700 relative rounded-lg overflow-hidden cursor-pointer">
-                                <div class="absolute inset-0" id="mainImageContainer">
-                                    <img id="mainImagePreview" src="" alt="Preview" class="w-full h-full object-cover hidden">
-                                    <div id="mainImagePlaceholder" class="w-full h-full flex flex-col items-center justify-center">
-                                        <svg class="w-12 h-12 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
-                                        </svg>
-                                        <span class="mt-2 text-sm text-gray-500">Upload Image</span>
-                                    </div>
-                                </div>
-                                <input type="file" name="image" accept="image/*" class="absolute inset-0 opacity-0 cursor-pointer" @change="handleMainImageUpload($event)">
+                            <!-- Image Upload with Filename Display -->
+                            <div class="flex items-center gap-4 mt-4">
+                                <label for="imageUpload" class="px-4 py-2 bg-indigo-600 hover:bg-indigo-700 text-white rounded-lg cursor-pointer">
+                                    Upload Image
+                                </label>
+                                <span id="fileName" class="text-gray-400"></span>
+                                <input type="file" id="imageUpload" name="image" accept="image/*" class="hidden" required onchange="handleMainImageUpload(event)">
                             </div>
+
+                            <script>
+                            function handleMainImageUpload(event) {
+                                const fileInput = event.target;
+                                const fileNameDisplay = document.getElementById('fileName');
+                                
+                                if (fileInput.files && fileInput.files[0]) {
+                                    // Get the file name
+                                    const fileName = fileInput.files[0].name;
+                                    
+                                    // Display the file name
+                                    fileNameDisplay.textContent = fileName;
+                                    
+                                    // Optional: Preview the image if needed
+                                    const reader = new FileReader();
+                                    reader.onload = function(e) {
+                                        // If you have an image preview element, you can set its src here
+                                        // const preview = document.getElementById('imagePreview');
+                                        // preview.src = e.target.result;
+                                        // preview.classList.remove('hidden');
+                                    }
+                                    reader.readAsDataURL(fileInput.files[0]);
+                                } else {
+                                    // Clear the filename if no file is selected
+                                    fileNameDisplay.textContent = '';
+                                }
+                            }
+                            </script>
                         </div>
 
                         <div class="flex justify-end space-x-4 mt-4">

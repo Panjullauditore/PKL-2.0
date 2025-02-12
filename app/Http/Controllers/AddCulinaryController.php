@@ -22,21 +22,12 @@ class AddCulinaryController extends Controller
 
     public function store(Request $request)
     {
-        $request->validate([
-            'culinary_name' => 'required',
-            'description' => 'nullable',
-            'email' => 'nullable|email',
-            'phone' => 'nullable',
-            'address' => 'nullable',
-            'image' => 'nullable|image|max:2048'
-        ]);
+        // dd($request);
+        
 
         $culinary = new Culinary();
         $culinary->name = $request->culinary_name;
-        $culinary->description = $request->description;
-        $culinary->email = $request->email;
-        $culinary->phone = $request->phone;
-        $culinary->address = $request->address;
+        $culinary->desc = $request->description;
 
         if ($request->hasFile('image')) {
             $imagePath = $request->file('image')->store('culinaries', 'public');
@@ -45,7 +36,7 @@ class AddCulinaryController extends Controller
 
         $culinary->save();
 
-        return redirect()->route('addculinaries.index');
+        return redirect()->route('addculinary.index');
     }
 
     public function addCulinary()
