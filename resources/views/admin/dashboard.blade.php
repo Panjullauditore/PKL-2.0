@@ -5,7 +5,7 @@
             class="min-h-screen bg-slate-800 p-6 transition-all duration-300">
             <div class="mt-10">
                 <nav class="flex flex-col gap-2">
-                    <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')"
+                    <x-nav-link :href="route('admin.dashboard')" :active="request()->routeIs('dashboard')"
                         class="flex items-center gap-3 p-3 rounded hover:bg-gray-800">
                         <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -16,7 +16,7 @@
                         <span x-show="sidebarOpen" class="text-white transition-all duration-300">DASHBOARD</span>
                     </x-nav-link>
 
-                    <x-nav-link href="#" :active="request()->routeIs('places')"
+                    <x-nav-link :href="route('addplaces.index')" :active="request()->routeIs('places')"
                         class="flex items-center gap-3 p-3 rounded hover:bg-gray-800">
                         <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -36,7 +36,7 @@
                         <span x-show="sidebarOpen" class="text-white transition-all duration-300">CULINARIES</span>
                     </x-nav-link>
 
-                    <x-nav-link href="#" :active="request()->routeIs('users')"
+                    <x-nav-link :href="route('admin.usermonitoring.index')" :active="request()->routeIs('users')"
                         class="flex items-center gap-3 p-3 rounded hover:bg-gray-800">
                         <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
