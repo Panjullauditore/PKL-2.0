@@ -57,18 +57,31 @@
 
                         <!-- Input for Place Name, Description, Email, Phone Number, Address, Category -->
                         <div class="space-y-4">
-                            <input type="text" name="place_name" placeholder="Place Name" class="w-full px-4 py-2 bg-gray-700 rounded-lg text-white placeholder-gray-500">
-                            <textarea name="description" placeholder="Description" class="w-full px-4 py-2 bg-gray-700 rounded-lg text-white placeholder-gray-500"></textarea>
+                            <!-- Place Name -->
+                            <input type="text" name="place_name" placeholder="Place Name" required maxlength="255"
+                                class="w-full px-4 py-2 bg-gray-700 rounded-lg text-white placeholder-gray-500 @error('place_name') border-red-500 @enderror">
+                            
+
+                            <!-- Description -->
+                            <textarea name="description" placeholder="Description" required
+                                class="w-full px-4 py-2 bg-gray-700 rounded-lg text-white placeholder-gray-500 @error('description') border-red-500 @enderror"></textarea>
+                            
 
                             <!-- Email Input -->
-                            <input type="email" name="email" placeholder="Email" class="w-full px-4 py-2 bg-gray-700 rounded-lg text-white placeholder-gray-500">
+                            <input type="email" name="email" placeholder="Email" required
+                                class="w-full px-4 py-2 bg-gray-700 rounded-lg text-white placeholder-gray-500 @error('email') border-red-500 @enderror">
                             
+
                             <!-- Phone Number Input -->
-                            <input type="text" name="phone" placeholder="Phone Number" class="w-full px-4 py-2 bg-gray-700 rounded-lg text-white placeholder-gray-500">
+                            <input type="text" name="phone" placeholder="Phone Number" required pattern="\+?\d{10,15}" title="Enter a valid phone number"
+                                class="w-full px-4 py-2 bg-gray-700 rounded-lg text-white placeholder-gray-500 @error('phone') border-red-500 @enderror">
                             
+
                             <!-- Address Input -->
-                            <input type="text" name="address" placeholder="Address" class="w-full px-4 py-2 bg-gray-700 rounded-lg text-white placeholder-gray-500">
+                            <input type="text" name="address" placeholder="Address" required
+                                class="w-full px-4 py-2 bg-gray-700 rounded-lg text-white placeholder-gray-500 @error('address') border-red-500 @enderror">
                             
+
                             <!-- Category Selection (Multiple) -->
                             <h4 class="text-white">Category</h4>
                             <div class="space-y-2">
@@ -91,7 +104,7 @@
                                         <span class="mt-2 text-sm text-gray-500">Upload Image</span>
                                     </div>
                                 </div>
-                                <input type="file" name="image" accept="image/*" class="absolute inset-0 opacity-0 cursor-pointer" @change="handleMainImageUpload($event)">
+                                <input type="file" name="image" accept="image/*" class="absolute inset-0 opacity-0 cursor-pointer" x-on:change="handleMainImageUpload($event)">
                             </div>
                         </div>
 
@@ -102,6 +115,7 @@
                             <button type="submit" class="px-4 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700">
                                 Add Place
                             </button>
+                            
                         </div>
                     </form>
                 </div>
@@ -178,3 +192,4 @@
     </script>
     @endpush
 </x-app-layout>
+

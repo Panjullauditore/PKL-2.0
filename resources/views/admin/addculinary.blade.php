@@ -57,7 +57,7 @@
 
                         <!-- Input for Culinary Name, Description, Email, Phone Number, Address, Category -->
                         <div class="space-y-4">
-                            <input type="text" name="culinary_name" placeholder="Culinary Name" class="w-full px-4 py-2 bg-gray-700 rounded-lg text-white placeholder-gray-500">
+                            <input type="text" name="culinary_name" placeholder="Culinary Name" class="w-full px-4 py-2 bg-gray-700 rounded-lg text-white placeholder-gray-500" required maxlength="255">
                             <textarea name="description" placeholder="Description" class="w-full px-4 py-2 bg-gray-700 rounded-lg text-white placeholder-gray-500"></textarea>
 
                              <!-- Image Upload -->
