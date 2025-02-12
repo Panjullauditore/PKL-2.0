@@ -124,5 +124,9 @@ Route::get('/dashboard', [AdminController::class, 'index'])
     Route::post('/tourist-attraction/{placeId}/review', [TouristAttractionController::class, 'storeReview'])
      ->name('tourist-attraction.review.store');
 
-
+     Route::get('/admin/addplaces', [AddPlacesController::class, 'index'])->name('addplaces.index');
+     Route::post('/admin/addplaces', [AddPlacesController::class, 'store'])->name('addplaces.store');
+     Route::delete('/admin/places/{place}', [AddPlacesController::class, 'destroy'])->name('places.destroy');
+     Route::get('/admin/places/{place}/edit', [AddPlacesController::class, 'edit'])->name('places.edit');
+     Route::put('/admin/places/{place}', [AddPlacesController::class, 'update'])->name('places.update');
 require __DIR__.'/auth.php';
