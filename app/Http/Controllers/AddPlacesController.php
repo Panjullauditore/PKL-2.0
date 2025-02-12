@@ -73,11 +73,13 @@ class AddPlacesController extends Controller
     }
     public function edit($id)
     {
-    // Mencari tempat berdasarkan ID
-    $place = places::findOrFail($id);
+        // Mencari tempat berdasarkan ID
+        $place = places::findOrFail($id);
+        $tags = tags::all();
+        $place_tags = places_tags::where('placeID', $id)->get();
 
-    // Menampilkan halaman edit dengan data tempat
-    return view('admin.editplace', compact('place'));
+        // Menampilkan halaman edit dengan data tempat
+        return view('admin.addplacesedit', compact('place', 'tags', 'place_tags'));
     }
 
     public function update(Request $request, $id)
