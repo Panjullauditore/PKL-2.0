@@ -39,60 +39,24 @@
         </div>
 
 
-        <div class="md:col-span-2 bg-gray-800 rounded-3xl p-8 shadow-sm mt-10 mx-4">
+        <div class=" bg-gray-800 rounded-3xl p-8 shadow-sm mt-10 mx-4">
             <div class="space-y-6">
                 <h2 class="text-white text-2xl">Edit</h2>
-                <form action="{{ route('places.update', $place->id) }}" method="POST" enctype="multipart/form-data">
+                <form action="{{ route('addculinary.update', $culinary->id) }}" method="POST" enctype="multipart/form-data">
                     @csrf
 
                     <!-- Input for Place Name, Description, Email, Phone Number, Address, Category -->
                     <div class="space-y-4">
-                        <img src="{{ asset('storage/' . $place->image) }}" alt="Place Image" class="w-full h-64 object-cover rounded-lg">
+                        <img src="{{ asset('storage/' . $culinary->image) }}" alt="Place Image" class="w-full h-64 object-cover rounded-lg">
                         <!-- Place Name -->
-                        <input type="text" name="place_name" required maxlength="255" value="{{$place->name}}" 
+                        <input type="text" name="culinary_name" required maxlength="255" value="{{$culinary->name}}" 
                             class="w-full px-4 py-2 bg-gray-700 rounded-lg text-white placeholder-gray-500 @error('place_name') border-red-500 @enderror">
                         
 
                         <!-- Description -->
                         <textarea name="description" required
-                            class="w-full px-4 py-2 bg-gray-700 rounded-lg text-white placeholder-gray-500 @error('description') border-red-500 @enderror">{{$place->desc}}</textarea>
-                        
-
-                        <!-- Email Input -->
-                        <input type="email" name="email" value="{{ $place->email }}" required
-                            class="w-full px-4 py-2 bg-gray-700 rounded-lg text-white placeholder-gray-500 @error('email') border-red-500 @enderror">
-                        
-
-                        <!-- Phone Number Input -->
-                        <input type="text" name="phone" value="{{$place->phoneNum}}" required pattern="\+?\d{10,15}" title="Enter a valid phone number"
-                            class="w-full px-4 py-2 bg-gray-700 rounded-lg text-white placeholder-gray-500 @error('phone') border-red-500 @enderror">
-                        
-
-                        <!-- Address Input -->
-                        <input type="text" name="address" value="{{$place->location}}" required
-                            class="w-full px-4 py-2 bg-gray-700 rounded-lg text-white placeholder-gray-500 @error('address') border-red-500 @enderror">
-                        
-                            <h4 class="text-white">Last Category</h4>
-                        <div class="space-y-2">
-                            @foreach ($last_tags as $last_tag)
-                                <label class="flex items-center space-x-2">
-                                    <span class="text-white">{{ $last_tag->name }}</span>
-                                    
-                                  
-                            @endforeach
-                        </div>
-
-                        <!-- Category Selection (Multiple) -->
-                        <h4 class="text-white">Category</h4>
-                        <div class="space-y-2">
-                            @foreach ($tags as $tag)
-                                <label class="flex items-center space-x-2">
-                                    <input type="checkbox" name="category[]" value="{{ $tag->id }}" class="form-checkbox h-5 w-5 text-indigo-600">
-                                    <span class="text-white">{{ $tag->name }}</span>
-                                </label>    
-                            @endforeach
-                        </div>
-                        
+                            class="w-full px-4 py-2 bg-gray-700 rounded-lg text-white placeholder-gray-500 @error('description') border-red-500 @enderror">{{$culinary->desc}}</textarea>
+                                                
                         <!-- Image Upload -->
                         <!-- Image Upload with Filename Display -->
                         <div class="flex items-center gap-4 mt-4">

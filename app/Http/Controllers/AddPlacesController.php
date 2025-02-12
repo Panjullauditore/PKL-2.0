@@ -8,6 +8,7 @@ use App\Models\Category;
 use App\Models\Tags;
 use App\Models\places_tags;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
 
 class AddPlacesController extends Controller
 {
@@ -65,7 +66,7 @@ class AddPlacesController extends Controller
     // Mencari tempat berdasarkan ID
     $place = places::findOrFail($id);
 
-    // Menghapus tempat dari database
+    places_tags::where('placeID', $id)->delete();
     $place->delete();
 
     // Redirect ke halaman index dengan pesan sukses
@@ -76,34 +77,44 @@ class AddPlacesController extends Controller
         // Mencari tempat berdasarkan ID
         $place = places::findOrFail($id);
         $tags = tags::all();
-        $place_tags = places_tags::where('placeID', $id)->get();
+        $last_tags = tags::join('places_tags', 'tags.id', '=', 'places_tags.tagID')
+            ->where('places_tags.placeID', $id)
+            ->get();
 
+        // dd($last_tags);
         // Menampilkan halaman edit dengan data tempat
-        return view('admin.addplacesedit', compact('place', 'tags', 'place_tags'));
+        return view('admin.addplacesedit', compact('place', 'tags', 'last_tags'));
+
     }
 
     public function update(Request $request, $id)
     {
-        // Validasi input
-        $request->validate([
-            'place_name' => 'required|string|max:255',
-            'description' => 'required|string',
-            'image' => 'nullable|image|max:2048',
-        ]);
-
         // Menyimpan perubahan tempat
         $place = places::findOrFail($id);
-        $place->place_name = $request->place_name;
-        $place->description = $request->description;
+        $place->name = $request->place_name;
+        $place->desc = $request->description;
+        $place->email = $request->email;
+        $place->phoneNUM = $request->phone;
+
+        //dd($request->category);
+        // Menghapus tag lama
+        DB::table('places_tags')->where('placeID', $id)->delete();
+        foreach ($request->category as $tag) {
+            $places_tags = new places_tags();
+            $places_tags->placeID = $place->id;
+            $places_tags->tagID = $tag;
+            $places_tags->save();
+        }
+
 
         if ($request->hasFile('image')) {
             // Menghapus gambar lama jika ada
             if ($place->image) {
-                // Storage::delete('public/' . $place->image);
+                Storage::delete('storage/' . $place->image);
             }
             $place->image = $request->file('image')->store('images', 'public');
         }
-
+        //dd($place);
         $place->save();
 
         return redirect()->route('addplaces.index')->with('success', 'Place updated successfully');

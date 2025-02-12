@@ -129,12 +129,14 @@ Route::get('/dashboard', [AdminController::class, 'index'])
      Route::get('/admin/addplaces', [AddPlacesController::class, 'index'])->name('addplaces.index');
      Route::post('/admin/addplaces', [AddPlacesController::class, 'store'])->name('addplaces.store');
      Route::delete('/admin/places/{place}', [AddPlacesController::class, 'destroy'])->name('places.destroy');
+     Route::post('/admin/places/{place}', [AddPlacesController::class, 'update'])->name('places.update');
      Route::get('/admin/places/{place}/edit', [AddPlacesController::class, 'edit'])->name('places.edit');
-     Route::put('/admin/places/{place}', [AddPlacesController::class, 'update'])->name('places.update');
-
+     
      Route::get('/admin/addculinary', [AddCulinaryController::class, 'index'])->name('addculinary.index');
      Route::post('/admin/addculinary', [AddCulinaryController::class, 'store'])->name('addculinary.store');
-     Route::get('addculinary/edit/{id}', [CulinaryController::class, 'edit'])->name('addculinary.edit');
+     Route::get('addculinary/edit/{id}', [AddCulinaryController::class, 'edit'])->name('addculinary.edit');
+    Route::post('addculinary/update/{id}', [AddCulinaryController::class, 'update'])->name('addculinary.update');
+    Route::delete('addculinary/delete/{id}', [AddCulinaryController::class, 'destroy'])->name('addculinary.destroy');
 
 
 
