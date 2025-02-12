@@ -44,7 +44,7 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile/edit', [ProfileController::class, 'destroy'])->name('profile.destroy');
     Route::get('/admin', [App\Http\Controllers\AdminController::class, 'index'])->name('admin.dashboard')->middleware('admin');   
 });
-    
+
 // Testing Root
 Route::get('/dashboard', function () {
     $projects = [
