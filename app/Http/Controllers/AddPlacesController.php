@@ -48,10 +48,13 @@ class AddPlacesController extends Controller
         }
 
         if ($request->hasFile('image')) {
-            $place->image = $request->file('image')->store('img/places', 'public');
+            $place->image = $request->file('image')->store('img/places');
+            // dd($place->image);
         }
 
         $place->save();
+
+        
 
         return redirect()->route('addplaces.index')->with('success', 'Place added successfully');
         
