@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Http\model\places;
+use App\Models\places;
 
 class DashboardController extends Controller
 {
@@ -10,9 +10,10 @@ class DashboardController extends Controller
     //    $popularPlaces = array_filter(TouristAttractionController::$wisataPlaces, function($place) {
     //        return $place['is_popular'] ?? false;
     //    });
+        $popular_places = places::where('ispopular', 1)->get();
 
-       return view('dashboard', [
-           'categories' => $this->getCategories()
+        return view('dashboard', [
+           'popularPlaces' => $popular_places,
        ]);
    }
 

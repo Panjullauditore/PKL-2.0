@@ -12,7 +12,7 @@
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 @foreach($places as $place)
                 <div class="bg-gray-800 rounded-lg overflow-hidden shadow-lg">
-                    <img src="{{ asset($place['image']) }}" alt="{{ $place['name'] }}" class="w-full h-48 object-cover">
+                    <img src="{{ asset('storage/'.$place['image']) }}" alt="{{ $place['name'] }}" class="w-full h-48 object-cover">
                     <div class="p-6">
                         <h3 class="text-xl font-bold text-white mb-2">{{ $place['name'] }}</h3>
                         <p class="text-gray-300 mb-4">{{ $place['description'] }}</p>

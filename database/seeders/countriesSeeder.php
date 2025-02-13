@@ -14,6 +14,7 @@ class countriesSeeder extends Seeder
     public function run(): void
     {
         DB::table('countries')->insert([
+            ['name' => 'none'],
             ['name' => 'Afghanistan'],
             ['name' => 'Albania'],
             ['name' => 'Algeria'],
