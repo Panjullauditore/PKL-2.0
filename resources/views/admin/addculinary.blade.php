@@ -113,18 +113,24 @@
                 <table class="w-full table-auto">
                     <thead>
                         <tr>
-                            <td class="px-4 py-2 text-white">Image</td>
+                            <td class="px-4 py-2 text-white">Id</td>
                             <td class="px-4 py-2 text-white">Culinary Name</td>
+                            <td class="px-4 py-2 text-white">Description</td>
                             <td class="px-4 py-2 text-white">Action</td>
                         </tr>
                     </thead>
                     <tbody>
                         @foreach ($culinaries as $culinary)
                             <tr class="border-b border-gray-700">
-                                <td class="px-4 py-2">
-                                    <img src="{{ asset('storage/' . $culinary->image) }}" alt="Image" class="w-20 h-20 object-cover rounded">
+                                <td class="px-4 py-2 text-white">
+                                    {{ $culinary->id }}
                                 </td>
                                 <td class="px-4 py-2 text-white">{{ $culinary->name }}</td>
+                                <td>
+                                    <div class="px-4 py-2 text-white">
+                                        {{ $culinary->desc }}
+                                    </div>
+                                </td>
                                 <td class="px-4 py-2">
                                     <div class="flex flex-col items-start space-y-2">
                                         <!-- Edit Button -->

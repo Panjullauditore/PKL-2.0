@@ -5,10 +5,12 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\places;
 use App\Models\Category;
+use App\Models\Culinaries;
 use App\Models\Tags;
 use App\Models\places_tags;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
+use App\Models\menu;
 
 class AddPlacesController extends Controller
 {
@@ -81,9 +83,24 @@ class AddPlacesController extends Controller
             ->where('places_tags.placeID', $id)
             ->get();
 
+        $menu = Menu::where('placeID', $id)->get(); // Filter menu dulu
+
+        $culinaries = Culinaries::leftJoin('menu', function($join) use ($id) {
+            $join->on('culinaries.id', '=', 'menu.culinaryID')
+                 ->where('menu.placeID', '=', $id);
+        })
+        ->select(
+            'culinaries.*', 
+            'menu.*', 
+            DB::raw('culinaries.id as culinary_real_id') // Kolom baru untuk memastikan ID tetap ada
+        )
+        ->get();
+         
+        //dd($culinaries);
+
         // dd($last_tags);
         // Menampilkan halaman edit dengan data tempat
-        return view('admin.addplacesedit', compact('place', 'tags', 'last_tags'));
+        return view('admin.addplacesedit', compact('place', 'tags', 'last_tags', 'culinaries'));
 
     }
 
@@ -106,7 +123,6 @@ class AddPlacesController extends Controller
             $places_tags->save();
         }
 
-
         if ($request->hasFile('image')) {
             // Menghapus gambar lama jika ada
             if ($place->image) {
@@ -118,6 +134,25 @@ class AddPlacesController extends Controller
         $place->save();
 
         return redirect()->route('addplaces.index')->with('success', 'Place updated successfully');
+    }
+
+    public function additems(request $request, $id)
+    {
+        // Mencari tempat berdasarkan ID
+        //dd($request);
+        DB::table('menu')->where('placeID', $id)->delete();
+        if ($request->culinaries == null) {
+            return redirect()->back();
+        }
+        foreach ($request->culinaries as $culinary) {
+            $menu = new menu();
+            $menu->culinaryID = $culinary;
+            $menu->placeID = $id;
+            $menu->save();
+        }
+
+        // Menampilkan halaman additems dengan data tempat
+        return redirect()->back();
     }
 
     public function create()

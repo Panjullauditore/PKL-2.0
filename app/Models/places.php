@@ -16,5 +16,7 @@ class places extends Model
         'email',
         'location',
         'desc',
+        'ispopular',
+        'image'
     ];
 }

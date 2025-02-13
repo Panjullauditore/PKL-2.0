@@ -30,6 +30,7 @@ class PlacesController extends Controller
 
     public function show($id)
     {
+        
         $places = places::where('id', $id)->get();
         $place = $places[0] ?? abort(404);
         $tags = places_tags::where('placeID', $id)
@@ -42,8 +43,60 @@ class PlacesController extends Controller
             ->join('users', 'review.userID', '=', 'users.id') // Ubah 'reviews' menjadi 'review'
             ->get();
         $thisUserReview = review::where('userID', Auth::id())->where('placeID', $id)->get();
+        $wishlist = DB::table('wishlist')->where('userID', Auth::id())->where('placeID', $id)->get();
+        $favorite = DB::table('favorites')->where('userID', Auth::id())->where('placeID', $id)->get();
         
-        return view('places.show', compact('place', 'reviews', 'tags', 'menu', 'thisUserReview'));
+        return view('places.show', compact('place', 'reviews', 'tags', 'menu', 'thisUserReview', 'wishlist', 'favorite'));
+    }
+
+    public function addwishlist($placeId)
+    {
+        try {
+            DB::table('wishlist')->insert([
+                'userID' => Auth::id(),
+                'placeID' => $placeId
+            ]);
+            return redirect()->back();
+        } catch (\Exception $e) {
+            return redirect()->back()
+                ->withInput();
+        }
+    }
+
+    public function removewishlist($placeId)
+    {
+        try {
+            DB::table('wishlist')->where('userID', Auth::id())->where('placeID', $placeId)->delete();
+            return redirect()->back();
+        } catch (\Exception $e) {
+            return redirect()->back()
+                ->withInput();
+        }
+    }   
+
+    public function addfavorite($placeId)
+    {
+        try {
+            DB::table('favorites')->insert([
+                'userID' => Auth::id(),
+                'placeID' => $placeId
+            ]);
+            return redirect()->back();
+        } catch (\Exception $e) {
+            return redirect()->back()
+                ->withInput();
+        }
+    }
+
+    public function removefavorite($placeId)
+    {
+        try {
+            DB::table('favorites')->where('userID', Auth::id())->where('placeID', $placeId)->delete();
+            return redirect()->back();
+        } catch (\Exception $e) {
+            return redirect()->back()
+                ->withInput();
+        }
     }
 
 

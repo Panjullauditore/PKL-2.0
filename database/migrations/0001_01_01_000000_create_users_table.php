@@ -11,17 +11,23 @@ return new class extends Migration
      */
     public function up(): void
     {
+
+        Schema::create('countries', function (Blueprint $table) {
+            $table->id();
+            $table->string('name');
+            $table->timestamps();
+        });
+
         Schema::create('users', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('username')->nullable();
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->string('role')->default('user');
-            $table->string('profile_photo_path', 2048)->default('userProfile.png');
+            $table->string('profile_photo_path', 2048)->default('img/profilePicture/userProfile.png');
             $table->string('phone_number')->nullable();
-            $table->string('bio')->nullable();
+            $table->foreignId('countryID')->constrained('countries');
             $table->rememberToken();
             $table->timestamps();
         });

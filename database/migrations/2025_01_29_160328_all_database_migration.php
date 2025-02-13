@@ -7,12 +7,6 @@ return new class extends Migration {
     public function up()
     {
 
-        Schema::create('countries', function (Blueprint $table) {
-            $table->id();
-            $table->string('name');
-            $table->timestamps();
-        });
-
         Schema::create('places', function (Blueprint $table) {
             $table->id();
             $table->string('name');
@@ -21,6 +15,7 @@ return new class extends Migration {
             $table->text('location');
             $table->text('desc')->nullable();
             $table->string('image')->default('default.jpg');
+            $table->integer('ispopular')->default(0);
             $table->timestamps();
         });
 

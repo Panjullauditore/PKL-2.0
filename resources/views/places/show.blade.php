@@ -13,7 +13,7 @@
     <div class="py-12 bg-gray-900">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-gray-800 rounded-lg overflow-hidden shadow-lg mt-10">
-                <img src="{{ asset($place->image ?? 'images/default.jpg') }}" alt="{{ $place->name }}"
+                <img src="{{ asset('storage/'.$place->image ?? 'images/default.jpg') }}" alt="{{ $place->name }}"
                     class="w-full h-96 object-cover">
                 <div class="p-8">
                     <h3 class="text-2xl font-bold text-white mb-4">{{ $place->name }}</h3>
@@ -44,14 +44,16 @@
                         <p class="mb-3"><i class="fas fa-phone mr-2"></i>{{ $place->phoneNum }}</p>
                         <p class="mb-3"><i class="fas fa-envelope mr-2"></i>{{ $place->email }}</p>
 
-                        <div class="mt-6">
-                            <h4 class="text-white text-lg font-semibold mb-3">Menu Items:</h4>
-                            <ul class="list-disc list-inside">
-                                @foreach($menu as $menuItem)
-                                <li class="text-gray-300">{{ $menuItem->culinary->name }}</li>
-                                @endforeach
-                            </ul>
-                        </div>
+                        @if ($menu->count() > 0)
+                            <div class="mt-6">
+                                <h4 class="text-white text-lg font-semibold mb-3">Menu Items:</h4>
+                                <ul class="list-disc list-inside">
+                                    @foreach($menu as $menuItem)
+                                    <li class="text-gray-300">{{ $menuItem->culinary->name }}</li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                        @endif
 
                         <!-- Tags Section -->
                         <div class="mt-4">
@@ -62,6 +64,97 @@
                                 @endforeach
                             </div>
                         </div>
+                    </div>
+
+                    <!-- Wishlist Button -->
+                    
+                    
+
+                    <div class="mt-10">
+                        @php   
+                        $isInWishlist = $wishlist->count() > 0;
+                        @endphp
+                        @if ($isInWishlist)
+                            <a href= "{{ route('removewishlist.store', $place->id) }}" id="wishlistButton"  class="px-4 py-2 rounded-lg border-2 {{ $isInWishlist ? 'bg-blue-600 text-white' : 'border-blue-600 text-blue-600' }} mt-10">
+                                <i class="fas fa-heart"></i> Wishlist
+                            </a>
+                        @else
+                            <a href= "{{ route('addwishlist.store', $place->id) }}" id="wishlistButton"  class="px-4 py-2 rounded-lg border-2 {{ $isInWishlist ? 'bg-blue-600 text-white' : 'border-blue-600 text-blue-600' }} mt-10">
+                                <i class="fas fa-heart"></i> Wishlist
+                            </a>
+                        @endif
+                        
+
+                        <script>
+                            document.getElementById('wishlistButton').addEventListener('click', function() {
+                                const isInWishlist = {{ $isInWishlist ? 'true' : 'false' }};
+                                const placeId = {{ $place->id }};
+                                const button = this;
+
+                                fetch(`/wishlist/toggle/${placeId}`, {
+                                    method: 'POST',
+                                    headers: {
+                                        'Content-Type': 'application/json',
+                                        'X-CSRF-TOKEN': '{{ csrf_token() }}'
+                                    },
+                                    body: JSON.stringify({ isInWishlist: !isInWishlist })
+                                })
+                                .then(response => response.json())
+                                .then(data => {
+                                    if (data.success) {
+                                        button.classList.toggle('bg-blue-600');
+                                        button.classList.toggle('text-white');
+                                        button.classList.toggle('border-blue-600');
+                                        button.classList.toggle('text-blue-600');
+                                    }
+                                })
+                                .catch(error => console.error('Error:', error));
+                            });
+                        </script>
+
+                        <!-- Favorite Button -->
+                        @php
+                            $isFavorite = $favorite->count() > 0;
+                        @endphp
+                        
+                        @if ($isFavorite)
+                            <a href="{{ route('removefavorite.store', $place->id) }}" id="favoriteButton" class="px-4 py-2 rounded-lg border-2 {{ $isFavorite ? 'bg-red-600 text-white' : 'border-red-600 text-red-600' }} mt-10">
+                                <i class="fas fa-heart"></i> Favorite
+                            </a>
+                        @else
+                            <a href="{{ route('addfavorite.store', $place->id) }}" id="favoriteButton" class="px-4 py-2 rounded-lg border-2 {{ $isFavorite ? 'bg-red-600 text-white' : 'border-red-600 text-red-600' }} mt-10">
+                                <i class="fas fa-heart"></i> Favorite
+                            </a>
+                        @endif
+                            
+                        
+
+                        <script>
+                            document.getElementById('favoriteButton').addEventListener('click', function() {
+                                const isFavorite = {{ $isFavorite ? 'true' : 'false' }};
+                                const placeId = {{ $place->id }};
+                                const button = this;
+
+                                fetch(`/favorite/toggle/${placeId}`, {
+                                    method: 'POST',
+                                    headers: {
+                                        'Content-Type': 'application/json',
+                                        'X-CSRF-TOKEN': '{{ csrf_token() }}'
+                                    },
+                                    body: JSON.stringify({ isFavorite: !isFavorite })
+                                })
+                                .then(response => response.json())
+                                .then(data => {
+                                    if (data.success) {
+                                        button.classList.toggle('bg-red-600');
+                                        button.classList.toggle('text-white');
+                                        button.classList.toggle('border-red-600');
+                                        button.classList.toggle('text-red-600');
+                                    }
+                                })
+                                .catch(error => console.error('Error:', error));
+                            });
+                        </script>
                     </div>
 
                     <!-- Review Section -->
@@ -234,4 +327,3 @@
     </div>
 </x-app-layout>
 
-{{dd($thisUserReview)}}

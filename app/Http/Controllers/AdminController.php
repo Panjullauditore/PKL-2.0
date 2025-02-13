@@ -7,19 +7,21 @@ use App\Models\places;
 use App\Models\Tags;
 use Illuminate\Support\Facades\Storage;
 use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
+use App\Models\places_tags;
 
 class AdminController extends Controller
 {
     public function index()
     {
         $projects = [
-            'Hotel' => 15,
-            'Culinary' => 21,
-            'Shopping' => 11,
-            'Entertainment' => 17,
-            'Tourist Attraction' => 13,
-            'Tour Guide' => 19
+            'Hotel' => places_tags::where('tagID', 1)->count(),
+            'Culinary' => places_tags::where('tagID', 2)->count(),
+            'Shopping' =>   places_tags::where('tagID', 3)->count(),
+            'Entertainment' => places_tags::where('tagID', 4)->count(),
+            'Tourist Attraction' => places_tags::where('tagID', 5)->count(),
+            'Tour Guide' => places_tags::where('tagID', 6)->count(),
         ];
+        
         
         $projectTypes = array_keys($projects);
         

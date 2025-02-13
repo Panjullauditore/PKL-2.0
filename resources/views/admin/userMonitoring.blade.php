@@ -59,16 +59,21 @@
                         </tr>
                     </thead>
                     <tbody class="text-gray-300"> <!-- Ganti text-gray-800 menjadi text-gray-300 -->
-                        <tr class="border-b border-gray-700 hover:bg-gray-700"> <!-- Tambah hover effect -->
-                            <td class="py-3 px-6">1</td>
-                            <td class="py-3 px-6">John Doe</td>
-                            <td class="py-3 px-6">john@example.com</td>
+                        @foreach ($users as $user)
+                        <tr class="bg-gray-800 border-b border-gray-600"> <!-- Ganti bg-white menjadi bg-gray-800 -->
+                            <td class="py-3 px-6 text-left whitespace-nowrap">{{ $user->id }}</td>
+                            <td class="py-3 px-6 text-left">{{ $user->name }}</td>
+                            <td class="py-3 px-6 text-left">{{ $user->email }}</td>
                             <td class="py-3 px-6 text-center">
-                                <button class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Detail</button>
-                                <button class="bg-red-600 text-white px-4 py-2 rounded hover:bg-red-700 ml-2">Hapus</button>
+                                <form action="{{ route('profile.monitoring', $user->id) }}" method="GET" class="inline">
+                                    @csrf
+                                    @method('GET')
+                                    <button type="submit" class="bg-indigo-500 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded">Profile</button>
+                                </form>
                             </td>
-                        </tr>
                         <!-- Ulangi untuk baris lainnya dengan class yang sama -->
+                        </tr>
+                        @endforeach
                     </tbody>
                 </table>
             </div>

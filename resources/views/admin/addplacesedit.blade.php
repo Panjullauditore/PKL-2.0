@@ -38,7 +38,7 @@
             </div>
         </div>
 
-
+        <div>
         <div class="md:col-span-2 bg-gray-800 rounded-3xl p-8 shadow-sm mt-10 mx-4">
             <div class="space-y-6">
                 <h2 class="text-white text-2xl">Edit</h2>
@@ -64,7 +64,7 @@
                         
 
                         <!-- Phone Number Input -->
-                        <input type="text" name="phone" value="{{$place->phoneNum}}" required pattern="\+?\d{10,15}" title="Enter a valid phone number"
+                        <input type="text" name="phone" value="{{$place->phoneNum}}" required title="Enter a valid phone number"
                             class="w-full px-4 py-2 bg-gray-700 rounded-lg text-white placeholder-gray-500 @error('phone') border-red-500 @enderror">
                         
 
@@ -140,5 +140,45 @@
                     </div>
                 </form>
             </div>
+        </div>
+
+        <div class="mt-8 bg-gray-800 rounded-3xl p-8 shadow-sm mt-10 mx-4">
+            <h2 class="text-white text-2xl mb-4">Items List</h2>
+            <form action="{{ route('places.additems', $place->id) }}" method="POST">
+            @csrf
+            <table class="w-full table-auto">
+                <thead>
+                <tr>
+                    <td class="px-16 py-6 text-white text-lg font-bold"></td>
+                    
+                    <td class="px-16 py-6 text-white text-lg font-bold">Items Name</td>
+                    <td class="px-16 py-6 text-white text-lg font-bold">Description</td>
+                </tr>
+                </thead>
+                <tbody>
+                @foreach ($culinaries as $culinary)
+                    <tr class="border-b border-gray-700">
+                    <td class="px-16 py-2">
+                        @if($culinary->placeID == null)
+                            <input type="checkbox" name="culinaries[]" value="{{ $culinary->culinary_real_id }}" class="form-checkbox h-5 w-5 text-indigo-600">
+                        @else
+                            <input type="checkbox" name="culinaries[]" value="{{ $culinary->culinary_real_id }}" class="form-checkbox h-5 w-5 text-indigo-600" checked>
+                        @endif
+                        
+                    </td>
+                    
+                    <td class="px-16 py-2 text-white">{{ $culinary->name }}</td>
+                    <td class="px-16 py-2 text-white">{{ $culinary->desc }}</td>
+                    </tr>
+                @endforeach
+                </tbody>
+            </table>
+            <div class="flex justify-end space-x-4 mt-4">
+                <button type="submit" class="px-4 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700">
+                Add items to menu
+                </button>
+            </div>
+            </form>
+        </div>
         </div>
 </x-app-layout>
